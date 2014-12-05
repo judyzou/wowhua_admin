@@ -1,0 +1,84 @@
+{% extends 'model/list.html' %}
+{% block model_menu_bar %}
+<div class="pull-right">
+    <form style="display:inline; margin-right:1em" method="POST" action="{{ cal_prize_link }}">
+        <input type="submit" class="btn btn-danger"
+               value="{{ _('Cal Prize Again') }}" title="重新计算本期中奖票，可编辑中奖号、奖级信息">
+    </form>
+
+    <form style="display:inline; margin-right:1em" method="POST" action="{{ prize_link }}">
+        <input class="btn btn-danger" type="submit"
+               value="{{ _('Prize Ticket') }}" title="审核通过，标记中奖票、失败票，派小奖奖金"/>
+    </form>
+
+    <form style="display:inline;" method="POST" action="{{ query_prize_link }}">
+        <input class="btn btn-danger" type="submit"
+               value="{{ _('Query Prize') }}" title="不使用算奖，通过上游取奖"/>
+    </form>
+</div>
+{% include 'model/game_detail.html' %}
+<br />
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#ticket_game" name="ticket_game">{{ _('Ticket Info') }}</a>
+    </li>
+</ul>
+<table class="table table-striped table-bordered model-list">
+    <thead>
+    <tr>
+        <th>
+            {{ _('Ticket count') }}
+        </th>
+        <th>
+            {{ _('Ticket Price Count') }}
+        </th>
+        <th>
+            {{ _('Pre Tax Count') }}
+        </th>
+        <th>
+            {{ _('After Tax Count') }}
+        </th>
+        <th>
+            {{ _('Big Bonus Num') }}
+        </th>
+        <th>
+            {{ _('Small Bonus Num') }}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ ticket_count|common_formatter }}</td>
+        <td>{{ price_count|common_formatter }}</td>
+        <td>{{ pre_tax_count|common_formatter }}</td>
+        <td>{{ after_tax_count|common_formatter }}</td>
+        <td>{{ big_prize_tickets|common_formatter }}</td>
+        <td>{{ small_prize_tickets|common_formatter }}</td>
+    </tr>
+    </tbody>
+</table>
+<br />
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="javascript:void(0)">{{ _gettext('List') }} ({{ count }})</a>
+    </li>
+
+    {% if filter_groups %}
+    <li class="dropdown">
+        {{ model_layout.filter_options() }}
+    </li>
+    {% endif %}
+
+    {% if actions %}
+    <li class="dropdown">
+        {{ actionlib.dropdown(actions) }}
+    </li>
+    {% endif %}
+
+    {% if search_supported %}
+    <li>
+        {{ model_layout.search_form() }}
+    </li>
+    {% endif %}
+</ul>
+{% endblock %}

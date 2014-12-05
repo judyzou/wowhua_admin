@@ -1,0 +1,65 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/lib.html' as lib with context %}
+
+{% macro extra() %}
+  <input name="_add_another" type="submit" class="btn btn-large" value="{{ _gettext('Save and Add') }}" />
+{% endmacro %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ url_for('admin.static', filename='select2/select2.css') }}" rel="stylesheet">
+    <link href="{{ url_for('admin.static', filename='datetimepicker/bootstrap-datetimepicker.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-duallistbox.css') }}">
+
+{% endblock %}
+
+{% block body %}
+  <ul class="nav nav-tabs">
+      <li>
+          <a href="{{ return_url }}">{{ _gettext('List') }}</a>
+      </li>
+      <li class="active">
+          <a href="javascript:void(0)">{{ _gettext('Create') }}</a>
+      </li>
+	</ul>
+
+  {% call lib.form_tag(form) %}
+      {{ lib.render_form_fields(form, form_opts=form_opts, form_rules=form_rules) }}
+      {{ lib.render_form_buttons(return_url, extra()) }}
+  {% endcall %}
+{% endblock %}
+
+{% block tail %}
+  {{ super() }}
+  <script src="{{ url_for('admin.static', filename='datetimepicker/bootstrap-datetimepicker.js') }}"></script>
+  <script src="{{ url_for('admin.static', filename='admin/js/form.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.bootstrap-duallistbox.js') }}"></script>
+  <script type="text/javascript">
+      //<![CDATA[
+//      var widget_name="{{widget_name|safe}}";
+      var multipleChoices= $('select#permissions').bootstrapDualListbox({
+          preserveSelectionOnMove: 'moved',
+//          helperSelectNamePostfix: widget_name,
+          moveOnSelect: false,
+          nonSelectedFilter: '',
+          bootstrap2Compatible: true,
+          filterTextClear: '显示所有',
+          filterPlaceHolder: '筛选',
+          removeAllLabel: '移除全部',
+          moveAllLabel: '选中全部',
+          nonSelectedListLabel: '没选中的',
+          showFilterInputs: true,
+          moveSelectedLabel: '移动选中的',
+          selectedListLabel: '已选中的',
+          selectorMinimalHeight: 210,
+          infoTextFiltered: "<span class='label label-warning'>已筛选</span> {0} 条符合条件的记录，总记录从 {1}条",
+          infoText: '共{0}条记录',
+          infoTextEmpty: '无记录',
+          removeSelectedLabel: '移除选中记录'
+      });
+
+      $("select>option:contains('ROOT')").attr('readonly', 'readonly');
+      $("select>option:contains('ROOT')").prop('disabled', 'disabled');
+  //]]>
+  </script>
+{% endblock %}

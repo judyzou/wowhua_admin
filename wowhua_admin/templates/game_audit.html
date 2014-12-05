@@ -1,0 +1,107 @@
+{% extends "admin/master.html" %}
+
+{% macro render_tickets_diff(title, tickets) %}
+    <div>
+        <h4>{{ title }}</h4>
+        <table class="table table-striped table-bordered model-list">
+            <thead>
+            <tr>
+                <th>票号</th>
+                <th>出票商</th>
+                <th>金额</th>
+                <th>税前中奖金额</th>
+                <th>税后中奖金额</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for t in tickets %}
+                <tr>
+                    <td><a href="{{ url_for('ticket.detail_view', id=t.id) }}">{{ t.id }}</a>
+                    </td>
+                    <td>{{ _(t.provider) }}</td>
+                    <td>{{ t.price }}</td>
+                    <td>{{ t.bonus }}</td>
+                    <td>{{ t.payment }}</td>
+                </tr>
+            {% else %}
+                <tr class="">
+                <td colspan="999">
+                    <div class="text-center">
+                        {{ _('There are no items in the table.') }}
+                    </div>
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endmacro %}
+
+{% block body %}
+<div>
+    <h3>上游中奖票统计</h3>
+    <table class="table table-striped table-bordered model-list">
+        <thead>
+        <tr>
+            <th>出票商</th>
+            <th>出票金额</th>
+            <th>税前中奖金额</th>
+            <th>税后中奖金额</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in provider_report %}
+            <tr>
+                <td>{{ _(row.provider) }}</td>
+                <td>{{ row.price }}</td>
+                <td>{{ row.bonus }}</td>
+                <td>{{ row.payment }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>中奖票核对</h3>
+    <table class="table table-striped table-bordered model-list">
+        <thead>
+        <tr>
+            <th></th>
+            <th>出票金额</th>
+            <th>税前中奖金额</th>
+            <th>税后中奖金额</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>上游合计</td>
+            <td>{{ provider_summary.price }}</td>
+            <td>{{ provider_summary.bonus }}</td>
+            <td>{{ provider_summary.payment }}</td>
+        </tr>
+        <tr>
+            <td>中心合计</td>
+            <td>{{ center_summary.price }}</td>
+            <td>{{ center_summary.bonus }}</td>
+            <td>{{ center_summary.payment }}</td>
+        </tr>
+        <tr>
+            <td>差异</td>
+            <td {% if diff_summary.price %}class=text-error style="font-weight: bold;"{% endif %}>{{ diff_summary.price }}</td>
+            <td {% if diff_summary.bonus %}class=text-error style="font-weight: bold;"{% endif %}>{{ diff_summary.bonus }}</td>
+            <td {% if diff_summary.payment %}class=text-error style="font-weight: bold;"{% endif %}>{{ diff_summary.payment }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{% if not diff_summary.ok %}
+    <div style="width: 100%; border-bottom: 1px solid #ddd; margin-top: 3em;"></div>
+    <div>
+        <h3>不一致的中奖票记录</h3>
+        {{ render_tickets_diff("在本地存在但在出票商不存在的记录", tickets_diff.get('center', [])) }}
+        {{ render_tickets_diff("在出票商存在但在本地不存在的记录", tickets_diff.get('provider', [])) }}
+        {{ render_tickets_diff("在本地和出票商均存在，但数据不符的记录", tickets_diff.get('mismatch', [])) }}
+    </div>
+{% endif %}
+{% endblock %}

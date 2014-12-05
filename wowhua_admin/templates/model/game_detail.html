@@ -1,0 +1,80 @@
+<br />
+<ul class="nav nav-tabs"> <li class="active">
+    <a href="#ticket_game" name="ticket_gme">{{ _('Game') }}</a>
+</li>
+</ul>
+<table class="table table-striped table-bordered model-list">
+    <thead>
+    <tr>
+        <th>
+            {{ _('Game ID') }}
+        </th>
+        <th>
+            {{ _('Game Status') }}
+        </th>
+        <th>
+            {{ _('Lottery Code') }}
+        </th>
+        <th>
+            {{ _('Issue') }}
+        </th>
+        <th>
+            {{ _('Bouns Code') }}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if game %}
+        <tr>
+            <td><a href="{{ url_for('game.index_view') }}?flt1_0={{ game.id }}">{{ game.id }}</a></td>
+            <td>{{ game.resulting_status|result_status_formatter }}</td>
+            <td>{{ lottery|lottery_code_formatter }}</td>
+            <td><a href="{{ url_for('game.index_view') }}?flt1_0={{ game.id }}">{{ game.issue|common_formatter }}</a></td>
+            <td>{{ game.bonus_code|common_formatter }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="999">
+                <div class="text-center">
+                    {{ _('There are no items in the table.') }}
+                </div>
+            </td>
+        </tr>
+    {% endif %}
+    </tbody>
+</table>
+<br />
+<ul class="nav nav-tabs"> <li class="active">
+        <a href="#ticket_prize" name="ticket_prize">{{ _('Prize') }}</a>
+    </li>
+</ul>
+<table class="table table-striped table-bordered model-list">
+    <thead>
+    <tr>
+        <th>
+            {{ _('Prize Category') }}
+        </th>
+        <th>
+            {{ _('Prize Payment') }}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if game_prize %}
+        {% for key, value in game_prize.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value|common_formatter }}</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="999">
+                <div class="text-center">
+                    {{ _('There are no items in the table.') }}
+                </div>
+            </td>
+        </tr>
+    {% endif %}
+    </tbody>
+</table>

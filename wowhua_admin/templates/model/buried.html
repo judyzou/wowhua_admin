@@ -1,0 +1,88 @@
+{% extends 'admin/master.html' %} 
+{% block body %}
+  <table class="table table-striped table-bordered model-list">
+    <thead>
+      <tr>
+        {% if stats %}
+        <th class="span1">endpoints</th>
+        {% for stats_key in stats[stats.keys()[0]].keys() %}
+          <th>
+            {{stats_key}}
+          </th>
+        {% endfor %}
+          {% else %}
+          <td colspan="999">
+              <div class="text-center">
+                  {{ _('There are no items in the table.') }}
+              </div>
+          </td>
+         {% endif %}
+      </tr>
+    </thead>
+    {% for endpoint in stats.keys() %}
+      <tbody>
+        <tr>
+          <td>
+              <a href="#{{ endpoint }}_job" name="{{ endpoint }}_point">{{endpoint}}</a>
+          </td>
+          {% for stats_endpoint_stats in stats[endpoint].values() %}
+            <td>
+              {{stats_endpoint_stats}}
+            </td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    {% endfor %}
+  </table>
+  <br />
+  <h5>{{ _('Buried Jobs') }}</h5>
+  <hr />
+
+  {% for host, jobs in buried_jobs.items() %}
+    <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#{{ host }}_point" name="{{ host}}_job">{{ host }}</a>
+        </li>
+    </ul>
+    <table class="table table-striped table-bordered model-list">
+      <thead>
+        <tr>
+          <th>{{ _('JID') }}</th>
+          <th>
+            {{ _('Job body') }}
+          </th>
+          <th>
+            {{ _('Operation' )}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      {% if jobs %}
+        {% for key, value in jobs.items() %}
+          <tr>
+            <td>
+              {{ key }}
+            </td>
+            <td>
+              {{ value }}
+            </td>
+            <td>
+              <a href="/admin/buried/delete?jid={{ key }}&ep={{host}}" class="warning">{{ _('delete') }}</a> |
+              <a href="/admin/buried/resend?jid={{ key }}&ep={{host}}" class="warning">{{ _('resend') }}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+            <td colspan="999">
+                <div class="text-center">
+                    {{ _('There are no items in the table.') }}
+                </div>
+            </td>
+        </tr>
+      </tbody>
+      {% endif %}
+    </table>
+    <br/><br/>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'model/list.html' %}
+
+
+    {% block model_menu_bar %}
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="javascript:void(0)">{{ _gettext('List') }} ({{ count }})</a>
+        </li>
+        {% if admin_view.can_create %}
+        <li>
+            <a href="{{ url_for('.create_view', url=return_url) }}">{{ _gettext('Create') }}</a>
+        </li>
+        {% endif %}
+
+        {% if filter_groups %}
+        <li class="dropdown">
+            {{ model_layout.filter_options() }}
+        </li>
+        {% endif %}
+
+        {% if actions %}
+        <li class="dropdown">
+            {{ actionlib.dropdown(actions) }}
+        </li>
+        {% endif %}
+
+        {% if search_supported %}
+        <li>
+            {{ model_layout.search_form() }}
+        </li>
+        {% endif %}
+         <li class="pull-right">
+             <span class="btn" id="export_csv">导出CSV</span>
+         </li>
+    </ul>
+    {% endblock %}
+
+    {% block tail %}
+        {{ super() }}
+         <script>
+             (function($) {
+                 $('#export_csv').click(function() {
+                     $('#filter_form').attr(
+                             'action', '{{ url_for('ticket.index_view') }}export/csv/'
+                     ).submit().attr('action', '{{ url_for('ticket.index_view') }}');
+                 })
+             })(jQuery);
+         </script>
+    {% endblock %}

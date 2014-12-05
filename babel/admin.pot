@@ -1,0 +1,768 @@
+# Translations template for WH-Admin.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the WH-Admin project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WH-Admin VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2014-12-05 17:09+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: wowhua_admin/admin.py:41
+msgid "Auth"
+msgstr ""
+
+#: wowhua_admin/admin.py:43
+msgid "AuthPermission"
+msgstr ""
+
+#: wowhua_admin/admin.py:46
+msgid "AuthGroup"
+msgstr ""
+
+#: wowhua_admin/admin.py:48
+msgid "AdminUser"
+msgstr ""
+
+#: wowhua_admin/admin.py:51
+msgid "timeline"
+msgstr ""
+
+#: wowhua_admin/admin.py:52
+msgid "Operator Log"
+msgstr ""
+
+#: wowhua_admin/admin.py:54
+msgid "user"
+msgstr ""
+
+#: wowhua_admin/admin.py:55
+msgid "wallet"
+msgstr ""
+
+#: wowhua_admin/admin.py:56
+msgid "bookmark"
+msgstr ""
+
+#: wowhua_admin/admin.py:57
+msgid "task"
+msgstr ""
+
+#: wowhua_admin/admin.py:58
+msgid "order"
+msgstr ""
+
+#: wowhua_admin/admin.py:59
+msgid "advert_context"
+msgstr ""
+
+#: wowhua_admin/admin.py:60
+msgid "advert"
+msgstr ""
+
+#: wowhua_admin/admin.py:61
+msgid "item"
+msgstr ""
+
+#: wowhua_admin/admin.py:62
+msgid "transaction"
+msgstr ""
+
+#: wowhua_admin/extensions.py:10 wowhua_admin/templates/layout.html:20
+msgid "Admin"
+msgstr ""
+
+#: wowhua_admin/extensions.py:11 wowhua_admin/templates/layout.html:19
+msgid "Home"
+msgstr ""
+
+#: wowhua_admin/translate_constants.py:4
+msgid "insert"
+msgstr ""
+
+#: wowhua_admin/translate_constants.py:5
+msgid "login"
+msgstr ""
+
+#: wowhua_admin/translate_constants.py:6
+msgid "logout"
+msgstr ""
+
+#: wowhua_admin/translate_constants.py:7
+msgid "update"
+msgstr ""
+
+#: wowhua_admin/translate_constants.py:8
+#: wowhua_admin/templates/model/buried.html:70
+msgid "delete"
+msgstr ""
+
+#: wowhua_admin/translate_constants.py:9
+msgid "register"
+msgstr ""
+
+#: wowhua_admin/util.py:77
+msgid "None"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:38 wowhua_admin/templates/alarm2.html:61
+msgid "Post Timeout Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:42 wowhua_admin/templates/alarm2.html:65
+msgid "Waiting Ticket Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:46
+msgid "Posted Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:50 wowhua_admin/templates/alarm2.html:69
+msgid "Return Timeout Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:54 wowhua_admin/templates/alarm2.html:77
+msgid "Failed Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:62 wowhua_admin/templates/alarm2.html:81
+msgid "Provider Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:79 wowhua_admin/templates/alarm2.html:106
+msgid "Post Time Out Tickets"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:82 wowhua_admin/templates/alarm2.html:109
+msgid "Queueing Tickets"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:85
+msgid "Posted Tickets"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:88 wowhua_admin/templates/alarm2.html:112
+msgid "Return TimeOut Tickets"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:91 wowhua_admin/templates/alarm2.html:115
+msgid "Waiting Tickets"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:94
+msgid "ZHHB"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:97
+msgid "LHBJ"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:100 wowhua_admin/templates/alarm2.html:121
+msgid "failed tickets since the last 24 hours."
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:112
+msgid "Alarm"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:145 wowhua_admin/templates/alarm.html:154
+#: wowhua_admin/templates/alarm2.html:204
+#: wowhua_admin/templates/alarm2.html:213
+msgid "Refresh"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:155 wowhua_admin/templates/alarm2.html:214
+msgid "Stop Alarm"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:161 wowhua_admin/templates/alarm2.html:220
+#: wowhua_admin/templates/alarm2.html:234
+msgid "Alarm Name"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:162 wowhua_admin/templates/alarm2.html:223
+msgid "Count Num"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:163 wowhua_admin/templates/alarm2.html:224
+#: wowhua_admin/templates/alarm2.html:237
+msgid "Alarm Num"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:164 wowhua_admin/templates/alarm2.html:225
+#: wowhua_admin/templates/alarm2.html:238
+msgid "Alarm Status"
+msgstr ""
+
+#: wowhua_admin/templates/alarm.html:165 wowhua_admin/templates/alarm2.html:226
+#: wowhua_admin/templates/alarm2.html:239
+msgid "Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:73
+msgid "Not Returned Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:85
+msgid "Queueing Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:89
+msgid "Not_sent Link"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:118
+msgid "Not Returned Tickets"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:124
+#: wowhua_admin/templates/alarm2.html:236
+#: wowhua_admin/templates/model/account_balance.html:10
+msgid "Balance"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:127
+msgid "Not_sent tickets in 5 minutes"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:140
+msgid "Alarming"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:221
+#: wowhua_admin/templates/alarm2.html:235
+#: wowhua_admin/templates/model/control_map.html:57
+msgid "Provider"
+msgstr ""
+
+#: wowhua_admin/templates/alarm2.html:222
+#: wowhua_admin/templates/model/control_map.html:9
+#: wowhua_admin/templates/model/game_detail.html:16
+msgid "Lottery Code"
+msgstr ""
+
+#: wowhua_admin/templates/game_audit.html:30
+#: wowhua_admin/templates/model/buried.html:16
+#: wowhua_admin/templates/model/buried.html:79
+#: wowhua_admin/templates/model/control_map.html:42
+#: wowhua_admin/templates/model/control_map.html:106
+#: wowhua_admin/templates/model/game_detail.html:39
+#: wowhua_admin/templates/model/game_detail.html:74
+#: wowhua_admin/templates/model/ticket_summary.html:152
+#: wowhua_admin/templates/model/view_ticket.html:43
+#: wowhua_admin/templates/model/view_ticket.html:83
+#: wowhua_admin/templates/model/view_ticket.html:123
+#: wowhua_admin/templates/model/view_ticket.html:173
+#: wowhua_admin/templates/model/view_ticket.html:218
+msgid "There are no items in the table."
+msgstr ""
+
+#: wowhua_admin/templates/home.html:8
+msgid "Welcome to the Ticket Center Admin,"
+msgstr ""
+
+#: wowhua_admin/templates/home.html:10 wowhua_admin/templates/layout.html:24
+msgid "Logout"
+msgstr ""
+
+#: wowhua_admin/templates/home.html:12
+msgid "Go To Admin."
+msgstr ""
+
+#: wowhua_admin/templates/home.html:14
+msgid "Anymous"
+msgstr ""
+
+#: wowhua_admin/templates/home.html:14 wowhua_admin/templates/layout.html:26
+msgid "Login"
+msgstr ""
+
+#: wowhua_admin/templates/home.html:16
+msgid "This is the home page for the Ticket Center Admin"
+msgstr ""
+
+#: wowhua_admin/templates/index.html:3
+msgid "edit something...."
+msgstr ""
+
+#: wowhua_admin/templates/layout.html:6 wowhua_admin/templates/layout.html:15
+msgid "Ticket Center Admin"
+msgstr ""
+
+#: wowhua_admin/templates/layout.html:21
+msgid "About"
+msgstr ""
+
+#: wowhua_admin/templates/layout.html:26
+msgid "Anonymous"
+msgstr ""
+
+#: wowhua_admin/templates/admin/master.html:10
+msgid " logout "
+msgstr ""
+
+#: wowhua_admin/templates/model/account_balance.html:9
+msgid "Account App"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_balance.html:11
+msgid "Change"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_balance.html:12
+msgid "Credit"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_balance.html:13
+msgid "Available Balance"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_balance.html:19
+msgid "Main App"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_balance.html:25
+#: wowhua_admin/templates/model/account_balance.html:39
+msgid "Operate Finance "
+msgstr ""
+
+#: wowhua_admin/templates/model/account_balance.html:51
+msgid "Count"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_finance.html:8
+#: wowhua_admin/templates/model/app_finance.html:7
+msgid "name"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_finance.html:10
+msgid "balance"
+msgstr ""
+
+#: wowhua_admin/templates/model/account_finance.html:18
+#: wowhua_admin/templates/model/add_prize.html:17
+#: wowhua_admin/templates/model/app_finance.html:17
+msgid "submit"
+msgstr ""
+
+#: wowhua_admin/templates/model/app_finance.html:9
+msgid "account_balance"
+msgstr ""
+
+#: wowhua_admin/templates/model/app_finance.html:11
+msgid "app_balance"
+msgstr ""
+
+#: wowhua_admin/templates/model/buried.html:38
+msgid "Buried Jobs"
+msgstr ""
+
+#: wowhua_admin/templates/model/buried.html:50
+msgid "JID"
+msgstr ""
+
+#: wowhua_admin/templates/model/buried.html:52
+msgid "Job body"
+msgstr ""
+
+#: wowhua_admin/templates/model/buried.html:55
+msgid "Operation"
+msgstr ""
+
+#: wowhua_admin/templates/model/buried.html:71
+msgid "resend"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:4
+msgid "Sale Map"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:12
+msgid "Sale Active"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:15
+msgid "Current Issue"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:18
+msgid "Current Sale Status"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:52
+msgid "Send Ticket Map"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:60
+msgid "Provider Active"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:63
+msgid "Lottery"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:66
+msgid "Lottery Send Ticket Active"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:69
+msgid "Provider Lottery Active"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:72
+msgid "Current Provider Issue"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:75
+msgid "Current Send Status"
+msgstr ""
+
+#: wowhua_admin/templates/model/control_map.html:78
+msgid "Percentage"
+msgstr ""
+
+#: wowhua_admin/templates/model/create.html:5
+#: wowhua_admin/templates/model/create_permission.html:5
+msgid "Save and Add"
+msgstr ""
+
+#: wowhua_admin/templates/model/create.html:17
+#: wowhua_admin/templates/model/create_permission.html:19
+#: wowhua_admin/templates/model/list.html:16
+#: wowhua_admin/templates/model/new_list.html:13
+#: wowhua_admin/templates/model/ticket_prize_ready.html:63
+#: wowhua_admin/templates/model/tickets_list.html:7
+msgid "List"
+msgstr ""
+
+#: wowhua_admin/templates/model/create.html:20
+#: wowhua_admin/templates/model/create_permission.html:22
+#: wowhua_admin/templates/model/list.html:20
+#: wowhua_admin/templates/model/new_list.html:17
+#: wowhua_admin/templates/model/tickets_list.html:11
+msgid "Create"
+msgstr ""
+
+#: wowhua_admin/templates/model/edit.html:5
+#: wowhua_admin/templates/model/edit_permission.html:5
+msgid "Save and Continue"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:3
+#: wowhua_admin/templates/model/view_ticket.html:13
+msgid "Game"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:10
+msgid "Game ID"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:13
+msgid "Game Status"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:19
+msgid "Issue"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:22
+msgid "Bouns Code"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:48
+msgid "Prize"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:55
+msgid "Prize Category"
+msgstr ""
+
+#: wowhua_admin/templates/model/game_detail.html:58
+msgid "Prize Payment"
+msgstr ""
+
+#: wowhua_admin/templates/model/inline_list_base.html:9
+msgid "Delete?"
+msgstr ""
+
+#: wowhua_admin/templates/model/inline_list_base.html:27
+msgid "Add"
+msgstr ""
+
+#: wowhua_admin/templates/model/layout.html:3
+msgid "Add Filter"
+msgstr ""
+
+#: wowhua_admin/templates/model/layout.html:17
+msgid "Apply"
+msgstr ""
+
+#: wowhua_admin/templates/model/layout.html:19
+msgid "Reset Filters"
+msgstr ""
+
+#: wowhua_admin/templates/model/layout.html:28
+msgid "Remove Filter"
+msgstr ""
+
+#: wowhua_admin/templates/model/layout.html:68
+#: wowhua_admin/templates/model/layout.html:75
+#: wowhua_admin/templates/model/ticket_summary.html:115
+msgid "Search"
+msgstr ""
+
+#: wowhua_admin/templates/model/list.html:60
+msgid "Operate"
+msgstr ""
+
+#: wowhua_admin/templates/model/list.html:148
+msgid "Please select at least one model."
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:6
+msgid "Cal Prize Again"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:11
+msgid "Prize Ticket"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:16
+msgid "Query Prize"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:23
+msgid "Ticket Info"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:30
+msgid "Ticket count"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:33
+msgid "Ticket Price Count"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:36
+msgid "Pre Tax Count"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:39
+msgid "After Tax Count"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:42
+msgid "Big Bonus Num"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_prize_ready.html:45
+msgid "Small Bonus Num"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_summary.html:17
+#: wowhua_admin/templates/model/ticket_summary.html:28
+#: wowhua_admin/templates/model/ticket_summary.html:39
+#: wowhua_admin/templates/model/ticket_summary.html:50
+#: wowhua_admin/templates/model/ticket_summary.html:61
+#: wowhua_admin/templates/model/ticket_summary.html:88
+msgid "please select a item"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_summary.html:120
+msgid "Summary Result"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_summary.html:125
+msgid "Ticket Count"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_summary.html:128
+msgid "Price Count"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_summary.html:131
+msgid "Pre Tax Bonus Amount"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_summary.html:134
+msgid "After Tax Bonus Amount"
+msgstr ""
+
+#: wowhua_admin/templates/model/ticket_summary.html:137
+#: wowhua_admin/views/timeline.py:26
+msgid "Action"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_game.html:8
+msgid "Can't result now."
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:18
+#: wowhua_admin/templates/model/view_ticket.html:56
+#: wowhua_admin/templates/model/view_ticket.html:136
+#: wowhua_admin/views/auth.py:70 wowhua_admin/views/auth.py:106
+#: wowhua_admin/views/auth.py:119 wowhua_admin/views/transaction.py:11
+msgid "ID"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:21
+msgid "lottery"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:24
+msgid "issue"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:27
+msgid "bonus_code"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:51
+msgid "antes"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:59
+msgid "code"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:62
+#: wowhua_admin/templates/model/view_ticket.html:151
+#: wowhua_admin/templates/model/view_ticket.html:196
+msgid "created"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:65
+msgid "ante price"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:91
+msgid "ticket_prize"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:91
+msgid "detail"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:96
+msgid "Category"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:99
+msgid "Bet Amount"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:102
+msgid "Pretax Bonus"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:105
+msgid "Payment total"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:131
+msgid "Ticket Transactions"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:139
+msgid "type"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:142
+msgid "amount"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:145
+msgid "transaction type"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:148
+msgid "reason"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:182
+msgid "Swap Record"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:187
+msgid "Ticket Id"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:190
+msgid "provider"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:193
+msgid "Process Status"
+msgstr ""
+
+#: wowhua_admin/templates/model/view_ticket.html:199
+msgid "Details"
+msgstr ""
+
+#: wowhua_admin/views/auth.py:63 wowhua_admin/views/auth.py:72
+msgid "View Name"
+msgstr ""
+
+#: wowhua_admin/views/auth.py:69 wowhua_admin/views/auth.py:105
+#: wowhua_admin/views/auth.py:118
+msgid "Name"
+msgstr ""
+
+#: wowhua_admin/views/auth.py:71 wowhua_admin/views/auth.py:107
+#: wowhua_admin/views/auth.py:120
+msgid "Permissions"
+msgstr ""
+
+#: wowhua_admin/views/auth.py:121
+msgid "Group"
+msgstr ""
+
+#: wowhua_admin/views/timeline.py:11 wowhua_admin/views/timeline.py:24
+msgid "Admin User"
+msgstr ""
+
+#: wowhua_admin/views/timeline.py:12 wowhua_admin/views/timeline.py:25
+msgid "Action Time"
+msgstr ""
+
+#: wowhua_admin/views/timeline.py:13 wowhua_admin/views/timeline.py:28
+msgid "Detail"
+msgstr ""
+
+#: wowhua_admin/views/timeline.py:27
+msgid "Resource"
+msgstr ""
+
+#: wowhua_admin/views/transaction.py:12
+msgid "User Id"
+msgstr ""
+
+#: wowhua_admin/views/transaction.py:13
+msgid "Amount"
+msgstr ""
+
+#: wowhua_admin/views/transaction.py:14
+msgid "Transaction Type"
+msgstr ""
+
+#: wowhua_admin/views/transaction.py:15
+msgid "Description"
+msgstr ""
+
+#: wowhua_admin/views/transaction.py:16
+msgid "Cancel Trans Id"
+msgstr ""
+
+#: wowhua_admin/views/transaction.py:17
+msgid "Created Time"
+msgstr ""
+

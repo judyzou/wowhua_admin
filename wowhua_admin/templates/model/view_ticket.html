@@ -1,0 +1,226 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+<ul>
+    {% for label, value in form_fields %}
+        <li>
+            {{ label }}:
+            {{ value }}
+        </li>
+    {% endfor %}
+</ul>
+
+<br />
+    {{ _('Game') }}:
+    <table class="table table-striped table-bordered model-list">
+        <thead>
+            <tr>
+                <th>
+                    {{ _('ID') }}
+                </th>
+                <th>
+                    {{ _('lottery') }}
+                </th>
+                <th>
+                    {{ _('issue') }}
+                </th>
+                <th>
+                    {{ _('bonus_code') }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if game %}
+            <tr>
+                <td><a href="{{ url_for('game.index_view') }}?flt1_0={{ game.id }}">{{ game.id }}</a></td>
+                <td>{{ lottery }}</td>
+                <td><a href="{{ url_for('game.index_view') }}?flt1_0={{ game.id }}">{{ game.issue }}</a></td>
+                <td>{{ game.bonus_code }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="999">
+                    <div class="text-center">
+                        {{ _('There are no items in the table.') }}
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+        </tbody></table>
+
+<br />
+{{ _('antes') }}:
+<table class="table table-striped table-bordered model-list">
+    <thead>
+        <tr>
+            <th>
+                {{ _('ID') }}
+            </th>
+            <th>
+                {{ _('code') }}
+            </th>
+            <th>
+                {{ _('created') }}
+            </th>
+            <th>
+                {{ _('ante price') }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if antes %}
+            {% for ante in antes %}
+            <tr>
+                <td>{{ ante.id }}</td>
+                <td>{{ ante.code }}</td>
+                <td>{{ time_formatter(ante.created) }}</td>
+                <td>{{ ante.price }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="999">
+                <div class="text-center">
+                    {{ _('There are no items in the table.') }}
+                </div>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+<br />
+{{ _('ticket_prize') }}{{ _('detail') }}:
+<table class="table table-striped table-bordered model-list">
+    <thead>
+        <tr>
+            <th>
+                {{ _('Category') }}
+            </th>
+            <th>
+                {{ _('Bet Amount') }}
+            </th>
+            <th>
+                {{ _('Pretax Bonus') }}
+            </th>
+            <th>
+                {{ _('Payment total') }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if ticket_prize %}
+            {% for prize in ticket_prize %}
+            <tr>
+                <td>{{ prize_formatter(game.lottery_code, prize.category) }}</td>
+                <td>{{ prize.matches }}</td>
+                <td>{{ prize.bonus }}</td>
+                <td>{{ prize.payment }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="999">
+                <div class="text-center">
+                    {{ _('There are no items in the table.') }}
+                </div>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+<br />
+    {{ _('Ticket Transactions') }}:
+    <table class="table table-striped table-bordered model-list">
+        <thead>
+            <tr>
+                <th>
+                    {{ _('ID') }}
+                </th>
+                <th>
+                    {{ _('type') }}
+                </th>
+                <th>
+                    {{ _('amount') }}
+                </th>
+                <th>
+                    {{ _('transaction type') }}
+                </th>
+                <th>
+                    {{ _('reason') }}
+                </th>
+                <th>
+                    {{ _('created') }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if transactions %}
+            {% for key, tran in transactions.items() %}
+                {% if tran %}
+                <tr>
+                    <td><a href="{{ url_for('transaction.index_view') }}?flt1_0={{ tran.id }}">{{ tran.id }}</a></td>
+                    <td>{{ _(key) }}</td>
+                    <td>{{ tran.amount|common_formatter }}</td>
+                    <td>{{ tran.type|transaction_type_formatter }}</td>
+                    <td>{{ tran.description|common_formatter }}</td>
+                   <td>{{ tran.created|time_formatter }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="999">
+                    <div class="text-center">
+                        {{ _('There are no items in the table.') }}
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+        </tbody></table>
+        <br />
+
+        {% if swap_tickets %}
+            {{ _('Swap Record') }}:
+            <table class="table table-striped table-bordered model-list">
+                <thead>
+                    <tr>
+                        <th>
+                            {{ _('Ticket Id') }}
+                        </th>
+                        <th>
+                            {{ _('provider') }}
+                        </th>
+                        <th>
+                            {{ _('Process Status') }}
+                        </th>
+                        <th>
+                            {{ _('created') }}
+                        </th>
+                        <th>
+                            {{ _('Details') }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if swap_tickets %}
+                        {% for swap_ticket in swap_tickets %}
+                        <tr>
+                            <td><a href="{{ url_for('ticket.index_view') }}{{ swap_ticket.id }}/">{{ swap_ticket.id }}</a></td>
+                            <td>{{ provider_id_formatter(swap_ticket.provider_id) }}</td>
+                            <td>{{ process_status_formatter(swap_ticket.process_status) }}</td>
+                            <td>{{ time_formatter(swap_ticket.created) }}</td>
+                            <td><a href="{{ url_for('ticket.index_view') }}?flt1_0={{ swap_ticket.id }}">查看票</a></td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="999">
+                            <div class="text-center">
+                                {{ _('There are no items in the table.') }}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        {%endif%}
+{% endblock %}

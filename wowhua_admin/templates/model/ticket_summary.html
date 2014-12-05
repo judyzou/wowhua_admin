@@ -1,0 +1,173 @@
+{% extends 'admin/master.html' %}
+{% from '_formhelpers.html' import render_field %}
+{% block head_css %}
+    {{ super() }}
+    <link href="/admin/static/select2/select2.css" rel="stylesheet">
+    <link href="/admin/static/datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<form role="form" id="filter_form" class="filter_form" method="GET" action="{{ return_url }}">
+<table class="table table-striped table-bordered model-list">
+    <tr>
+        {% for i, (key, options) in enumerate(filter_groups) %}
+        <td width="33%">
+            <label class="sr-only" for="filter_select_{{ i }}">{{ _('Filter '+key) }}</label>
+            {% if key == 'Account Id' %}
+              <select style="width: 220px" data-role="select2" name="flt{{ i }}_{{ options[0][0] }}">
+                <option value="">{{ _('please select a item') }}</option>
+                {% for account in accounts %}
+                  <option value="{{ account.id }}"
+                    {% if self_filters.has_key(options[0][0]) and self_filters[options[0][0]]==account.id|string %}
+                      selected="true"
+                    {% endif %}>{{ account.name }}
+                  </option>
+              {% endfor %}
+             </select>
+            {% elif key == 'Lottery' %}
+              <select style="width: 220px" data-role="select2" name="flt{{ i }}_{{ options[0][0] }}">
+                <option value="">{{ _('please select a item') }}</option>
+                {% for lottery in lotteries %}
+                  <option value="{{ lottery[0] }}"
+                    {% if self_filters.has_key(options[0][0]) and self_filters[options[0][0]]==lottery[0]|string %}
+                      selected="true"
+                    {% endif %}
+                  >{{ lottery[1]|lottery_code_formatter }}</option>
+                {% endfor %}
+              </select>
+            {% elif key == 'Provider Id' %}
+              <select data-role="select" tabindex="-1" name="flt{{ i }}_{{ options[0][0] }}">
+                <option value="">{{ _('please select a item') }}</option>
+                {% for provider in providers %}
+                <option value="{{ provider.id }}"
+                  {% if self_filters.has_key(options[0][0]) and self_filters[options[0][0]]==provider.id|string %}
+                    selected="true"
+                  {% endif %}
+                  >{{ provider.name }}</option>
+                {% endfor %}
+              </select>
+            {% elif key == 'Process Status' %}
+              <select data-role="select" tabindex="-1" name="flt{{ i }}_{{ options[0][0] }}">
+                <option value="">{{ _('please select a item') }}</option>
+                {% for status_num, status in process_status %}
+                <option value="{{ status_num }}"
+                  {% if self_filters.has_key(options[0][0]) and self_filters[options[0][0]]==status_num|string %}
+                    selected="true"
+                  {% endif %}
+                >{{ status }}</option>
+                {% endfor %}
+              </select>
+            {% elif key == 'Bonus Result' %}
+                <select data-role="select" tabindex=-1 name="flt{{ i }}_{{ options[0][0] }}">
+                    <option value="">{{ _('please select a item') }}</option>
+                    {% for v, k in bonus_results.items() %}
+                    <option value="{{ v }}"
+                      {% if self_filters.has_key(options[0][0]) and self_filters[options[0][0]]==v|string %}
+                        selected="true"
+                      {% endif %}
+                    >{{ v|bonus_result_formatter }}</option>
+                    {% endfor %}
+                </select>
+            {% elif key in ('Created','Post Time','Process Time','Return Time') %}
+                <input type="text" data-role="datetimepicker" style="width: 160px;" name="flt{{i}}_{{ options[2][0] }}"
+                {% if self_filters.has_key(options[2][0]) %}
+                    value="{{ self_filters[options[2][0]]}}"{% endif %}
+                class="filter-val" data-role="datetimepicker"></input>
+                至
+                <input type="text"  style="width: 160px;" name="flt{{i}}_{{ options[3][0] }}"
+                {% if self_filters.has_key(options[3][0]) %}
+                    value="{{ self_filters[options[3][0]]}}"{% endif %}
+                class="filter-val" data-role="datetimepicker"></input>
+            {% elif key == 'Game Id' %}
+                <input name="flt{{ i }}_{{ options[0][0] }}" type="text"
+                    {% if self_filters.has_key(options[0][0]) %}
+                    value="{{ self_filters[options[0][0]] }}"
+                    {% endif %}
+                    class="" />
+            {% else %}
+                <select id="filter_select_{{ i }}" class="filter-val" style="width: 100px">
+                    <option value="">{{ _('please select a item') }}</option>
+                    {% for value, option in options %}
+                    <option value="{{ value }}"
+                      {% if self_filters.has_key(value) %}
+                        selected="true"
+                      {% endif %}
+                    >{{ _(option) }}</option>
+                    {% endfor %}
+                </select>
+                <input name="flt{{ i }}_{{ options[0][0] }}" type="text"
+                {% for value, option in options %}
+                {% if self_filters.has_key(value) %}
+                value="{{ self_filters[value] }}"
+                {% endif %}
+                {% endfor %}
+                class="" />
+                {% endif %}
+                {% if (i+1)%3==0 %}
+                </td>
+                </tr>
+        {% else %}
+            </td>
+        {% endif %}
+    {% endfor %}
+    </tr>
+</table>
+<div class="pull-right">
+    <button type="submit" class="btn btn-primary" style="">{{ _('Search') }}</button>
+</div>
+<br />
+<br />
+<br />
+<h5>{{ _('Summary Result') }}</h5>
+<table class="table table-striped table-bordered model-list">
+    <thead>
+    <tr>
+        <th>
+            {{ _('Ticket Count') }}
+        </th>
+        <th>
+            {{ _('Price Count') }}
+        </th>
+        <th>
+            {{ _('Pre Tax Bonus Amount') }}
+        </th>
+        <th>
+            {{ _('After Tax Bonus Amount') }}
+        </th>
+        <th>
+            {{ _('Action') }}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% if query %}
+        <td>{{ query.0|common_formatter }}</td>
+        <td>{{ query.1|common_formatter }}</td>
+        <td>{{ query.2|common_formatter }}</td>
+        <td>{{ query.3|common_formatter }}</td>
+        <td><a href="{{ ticket_filter_url }}">查看票</a></td>
+        {% else %}
+        <td colspan="999">
+            <div class="text-center">
+                {{ _('There are no items in the table.') }}
+            </div>
+        </td>
+        {% endif %}
+    </tr>
+    </tbody></table>
+</form>
+{% endblock %}
+{% block tail_js %}
+        {{ super() }}
+<script src="/admin/static/datetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="/admin/static/admin/js/form.js"></script>
+<script src="/admin/static/admin/js/filters.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('input[data-role=datetimepicker]').datetimepicker();
+        $('select[data-role=select2]').select2();
+
+    })
+</script>
+{% endblock %}
+

@@ -1,0 +1,9 @@
+include AUTHORS.rst
+include HISTORY.rst
+include README.rst
+include ticket_admin/conf/*.ini
+recursive-include ticket_admin *.py
+recursive-exclude ticket_admin *.pyc
+recursive-include ticket_admin/translations *
+recursive-include ticket_admin/templates *
+recursive-include ticket_admin/static *

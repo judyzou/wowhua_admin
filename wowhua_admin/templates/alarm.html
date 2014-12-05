@@ -1,0 +1,170 @@
+{% extends 'admin/master.html' %}
+{% block head_tail %}
+    <audio id = "bgsnd1" src="" autoplay="autoplay" loop="loop">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id = "bgsnd2" src="" autoplay="autoplay" loop="loop"></audio>
+    <audio id = "bgsnd3" src="" autoplay="autoplay" loop="loop"></audio>
+    <audio id = "bgsnd4" src="" autoplay="autoplay" loop="loop"></audio>
+    <script language="JavaScript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script language="JavaScript">
+    function start_alarm(alarm){
+        switch (alarm){
+            case 'post_timeout':
+                $("audio#bgsnd1").attr('src', "{{ url_for('static', filename='mp3/swh.mp3') }}" );
+                break;
+            case 'waiting':
+                $("audio#bgsnd2").attr('src', "{{ url_for('static', filename='mp3/wsp.mp3') }}" );
+                break;
+            case 'return_timeout':
+                $("audio#bgsnd3").attr('src', "{{ url_for('static', filename='mp3/xcf.mp3') }}" );
+                break;
+            default :
+                $("audio#bgsnd4").attr('src', "{{ url_for('static', filename='mp3/swh.mp3') }}" );
+                break;
+        }
+    }
+
+    function stop_alarm(){
+        $('audio').attr('src', "" );
+    }
+
+    function get_link(alarm){
+        var return_link="";
+        var return_text="";
+        switch (alarm){
+            case 'post_timeout':
+                return_link = "{{ url_for('post_timeout_ticket.index_view') }}";
+                return_text = "{{ _('Post Timeout Link') }}";
+                break;
+            case 'waiting':
+                return_link = "{{ url_for('waiting_ticket.index_view') }}";
+                return_text = "{{ _('Waiting Ticket Link') }}";
+                break;
+            case 'posted':
+                return_link = "{{ url_for('posted_ticket.index_view') }}";
+                return_text = "{{ _('Posted Link') }}";
+                break;
+            case 'return_timeout':
+                return_link = "{{ url_for('return_timeout_ticket.index_view') }}";
+                return_text = "{{ _('Return Timeout Link') }}";
+                break;
+            case 'failed_since_the_last_24':
+                return_link = "{{ url_for('failed_ticket.index_view') }}";
+                return_text = "{{ _('Failed Link') }}";
+                break;
+            case 'ZCHT':
+            case 'ZCHTDRUNK':
+            case 'ZCHTLOST':
+            case 'ZHHB':
+            case 'LHBJ':
+                return_link = "{{ url_for('provider.index_view') }}";
+                return_text = "{{ _('Provider Link') }}";
+                break;
+            default :
+                break;
+        }
+        if (return_text != ""){
+            return "<a href='" + return_link + "' target='view_window'>" + return_text + "</a>";
+        }
+        else{
+            return "";
+        }
+    }
+
+    function get_alarm_name(alarm){
+        var return_val = alarm;
+        switch (alarm){
+            case 'post_timeout':
+                return_val = '{{ _("Post Time Out Tickets") }}';
+                break;
+            case 'queueing':
+                return_val = '{{ _("Queueing Tickets") }}';
+                break;
+            case 'posted':
+                return_val = '{{ _("Posted Tickets") }}';
+                break;
+            case 'return_timeout':
+                return_val = '{{ _("Return TimeOut Tickets") }}';
+                break;
+            case 'waiting':
+                return_val = '{{ _("Waiting Tickets") }}';
+                break;
+            case 'ZHHB':
+                return_val = '{{ _("ZHHB") }}';
+                break;
+            case 'LHBJ':
+                return_val = '{{ _("LHBJ") }}';
+                break;
+            case 'failed_since_the_last_24':
+                return_val = '{{ _("failed tickets since the last 24 hours.") }}';
+                break;
+            default :
+                return_val = alarm;
+                break;
+        }
+        return return_val
+    }
+
+    function check_alarm(data, alarm){
+        if (data[alarm].alarm_bell){
+            start_alarm(alarm);
+            return "{{ _('Alarm') }}"
+        }
+        else
+            return ""
+    }
+
+
+    function load_info(){
+        stop_alarm();
+        $.getJSON( '{{ url_for('admin_alarm.alarm') }}'
+            , function(data) {
+            $('tbody#alarm_table').html("");
+            for (alarm in data){
+                $('tbody#alarm_table').append(
+                    "<tr>   \
+                         <td>" + get_alarm_name(alarm)   + "</td> \
+                         <td>" + data[alarm].count   + "</td> \
+                         <td>" + data[alarm].alarm_num   + "</td> \
+                         <td>" + check_alarm(data, alarm)   + "</td> \
+                         <td>" + get_link(alarm)   + "</td> \
+                    </tr>"
+                )
+            }
+
+            });
+            wait_time = {{ interval }}
+    }
+    var wait_time = {{ interval }}
+    setInterval(function(){
+        wait_time = wait_time-1;
+        if (wait_time == 0){
+            load_info()
+        }
+        $("#refresh_bt").text("{{ _('Refresh') }}" + "(" + wait_time + ")" );
+    }, 1000);
+
+    load_info();
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="pull-right">
+        <button id="refresh_bt" class="btn btn-danger" type="submit" onclick="load_info()">{{ _('Refresh') }}(30) </button>
+        <button class="btn btn-danger" type="submit" onclick="stop_alarm()">{{ _('Stop Alarm') }}</button>
+    </div>
+
+    <table class="table table-striped table-bordered model-list">
+    <thead>
+        <tr>
+            <th>   {{ _('Alarm Name') }} </th>
+            <th>   {{ _('Count Num') }} </th>
+            <th>   {{ _('Alarm Num') }} </th>
+            <th>   {{ _('Alarm Status') }} </th>
+            <th>   {{ _('Link') }} </th>
+        </tr>
+    </thead>
+    <tbody id = 'alarm_table'>
+    </tbody></table>
+{% endblock %}

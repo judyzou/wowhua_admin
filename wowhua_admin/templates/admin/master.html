@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% block tail %}
+{{ super() }}
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+{% endblock %}
+
+{% block access_control %}
+{{ super() }}
+  <div style="float:right; margin-top:9px;">
+      <a href="{{ url_for('admin_handlers.logout_view') }}">{{ _(' logout ') }}</a>
+  </div>
+{% endblock %}

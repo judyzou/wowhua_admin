@@ -1,0 +1,114 @@
+{% extends 'admin/master.html' %} 
+{% block body %}
+
+{{ _('Sale Map') }}:
+<table class="table table-striped table-bordered model-list">
+    <thead>
+        <tr>
+            <th>
+                {{ _('Lottery Code') }}
+            </th>
+            <th>
+                {{ _('Sale Active') }}
+            </th>
+            <th>
+                {{ _('Current Issue') }}
+            </th>
+            <th>
+                {{ _('Current Sale Status') }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if lotteries %}
+            {% for lottery in lotteries %}
+            <tr>
+                <td><a href="{{ url_for('lottery.index_view') }}?flt1_0={{lottery.id}}"
+                        >{{ lottery.name }}</a></td>
+                <td>{{ lottery.sale_active }}</td>
+                {% if lottery.issue %}
+                    <td><a href="{{ url_for('currentgame.index_view') }}?flt1_0={{lottery.game_id}}"
+                            >{{ lottery.issue }}</a></td>
+                {% else %}
+                    <td> </td>
+                {% endif %}
+                <td>{{ lottery.status }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="999">
+                <div class="text-center">
+                    {{ _('There are no items in the table.') }}
+                </div>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+
+<br />
+{{ _('Send Ticket Map') }}:
+<table class="table table-striped table-bordered model-list">
+    <thead>
+        <tr>
+            <th>
+                {{ _('Provider') }}
+            </th>
+            <th>
+                {{ _('Provider Active') }}
+            </th>
+            <th>
+                {{ _('Lottery') }}
+            </th>
+            <th>
+                {{ _('Lottery Send Ticket Active') }}
+            </th>
+            <th>
+                {{ _('Provider Lottery Active') }}
+            </th>
+            <th>
+                {{ _('Current Provider Issue') }}
+            </th>
+            <th>
+                {{ _('Current Send Status') }}
+            </th>
+            <th>
+                {{ _('Percentage') }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if provider_lotteries %}
+        {% for pl in provider_lotteries %}
+            <tr>
+                <td><a href="{{ url_for('provider.index_view') }}?flt1_0={{ pl.provider_id }}"
+                        >{{ pl.provider_name }}</a></td>
+                <td>{{ pl.provider_active }}</td>
+                <td><a href="{{ url_for('lottery.index_view') }}?flt1_0={{pl.lottery_id}}"
+                        >{{ pl.lottery_name }}</a></td>
+                <td>{{ pl.lottery_active }} </td>
+                <td>{{ pl.active }}</td>
+                {% if pl.issue %}
+                    <td><a href="{{ url_for('%s_game_.index_view' % pl.provider_url_name.lower()) }}?flt1_0={{pl.game_id}}">{{ pl.issue }}</a></td>
+                {% else %}
+                    <td> </td>
+                {% endif %}
+                <td>{{ pl.status }}</td>
+                <td>{{ pl.weight }}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="999">
+                <div class="text-center">
+                    {{ _('There are no items in the table.') }}
+                </div>
+            </td>
+        </tr>
+    {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}

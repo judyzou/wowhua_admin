@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% block head %}
+        <title>{% block title %}{% endblock %} - {{ _('Admin') }}{% block title_branding %} | {{ branding }}{% endblock %}</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">
+          {{ _('Admin') }}
+      </h1>
+      <nav>
+        <ul class="menu">
+            <li><a href="{{ url_for('admin_handlers.home') }}">{{ _('Home') }}</a></li>
+            <li><a href="/admin/">{{ _('Admin') }}</a></li>
+            <li><a href="/about/">{{ _('About') }}</a></li>
+            <li>
+                {% if user.is_authenticated() %}
+                {{ user.name }}, <a href="{{ url_for('admin_handlers.logout_view') }}">{{ _('Logout') }}</a>
+                {% else %}
+                    {{ _('Anonymous') }}, <a href="{{ url_for('admin_handlers.login_view') }}">{{ _('Login') }}</a>
+                {% endif %}
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <div id="footer">
+        {% block footer %}
+            &copy; Copyright 2010 by ZCH</a>.
+        {% endblock %}
+    </div>
+
+  </body>
+</html>

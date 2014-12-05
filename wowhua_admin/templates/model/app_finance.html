@@ -1,0 +1,20 @@
+{% extends 'admin/master.html' %}
+{% from "_formhelpers.html" import render_field %}
+{% block body %}
+  <form action="" method="post" name="login">
+    {{form.hidden_tag()}}
+      <dl>
+        <label for="name">{{ _('name') }}</label>
+        {{ form.name(readonly=true) }}
+        <label for="account_balance">{{ _('account_balance') }}</label>
+        {{ form.account_balance(readonly=true) }}
+        <label for="app_balance">{{ _('app_balance') }}</label>
+        {{ form.app_balance(readonly=true) }}
+        {{ render_field(form.action, required=true) }}
+        {{ render_field(form.amount) }}
+      </dl>
+      <p>
+        <input type="submit" class="btn btn-primary btn-large" value={{ _("submit") }}>
+      </p>
+  </form>
+{% endblock %}

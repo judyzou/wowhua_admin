@@ -1,0 +1,41 @@
+{% extends 'model/list.html' %}
+{% import filter_template as filter_layout with context %}
+
+{% block head %}
+    {{ super() }}
+    <link href="/admin/static/datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" >
+{% endblock %}
+
+{% block body %}
+    {% block model_menu_bar %}
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="javascript:void(0)">{{ _gettext('List') }} ({{ count }})</a>
+        </li>
+        {% if admin_view.can_create %}
+        <li>
+            <a href="{{ url_for('.create_view', url=return_url) }}">{{ _gettext('Create') }}</a>
+        </li>
+        {% endif %}
+
+        {% if actions %}
+        <li class="dropdown">
+            {{ actionlib.dropdown(actions) }}
+        </li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+
+    {% if filter_groups %}
+        {{ filter_layout.filter_form() }}
+        <div class="clearfix"></div>
+    {% endif %}
+
+    {% block model_list_table %}
+        {{ super() }}
+    {% endblock %}
+    
+    {% block tail %}
+        {{ super() }}
+    {% endblock %}
+{% endblock %}

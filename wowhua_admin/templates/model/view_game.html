@@ -1,0 +1,14 @@
+{% extends 'admin/master.html' %} 
+{% block body %}
+<div class="pull-right">
+    <form method="post" >
+        {% if can_result %}
+        <input name="game_action" type="submit" class="btn btn-danger" value="{{ action }}">
+        {% else %}
+        <h4>{{ _("Can't result now.") }}</h4>
+        {% endif %}
+    </form>
+</div>
+<br />
+{% include 'model/game_detail.html' %}
+{% endblock %}

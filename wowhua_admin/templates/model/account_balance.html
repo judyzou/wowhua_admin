@@ -1,0 +1,66 @@
+{% extends 'admin/master.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block body %}
+<br />
+<table class="table table-striped table-bordered model-list">
+  <thead>
+    <tr>
+      <th>{{ _('Account App') }}</th>
+      <th>{{ _('Balance') }}</th>
+      <th>{{ _('Change') }}</th>
+      <th>{{ _('Credit') }}</th>
+      <th>{{ _('Available Balance') }}</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+        <td>
+            <a href="{{ url_for('account.index_view')+'?flt1_8=%s'%account.id }}">{{ _('Main App') }}</a>
+        </td>
+        <td>
+            {{ account.balance }}
+        </td>
+        <td>
+            <a href="{{ url_for('account.finance')+'?id=%s'%account.id }}">{{ _('Operate Finance ')}}</a>
+        </td>
+        <td>{{ None }}</td>
+        <td>{{ None }}</td>
+      </tr>
+    {% for app in apps %}
+      <tr>
+        <td>
+            <a href="{{ url_for('app.index_view')+'?flt1_4=%s'%app.id }}">{{ app.name }}</a>
+        </td>
+        <td>
+            {{ app.balance }}
+        </td>
+        <td>
+            <a href="{{ url_for('app.finance')+'?id=%s'%app.id }}">{{ _('Operate Finance ')}}</a>
+        </td>
+        <td>
+            {{ app.credit_line }}
+        </td>
+        <td>
+            {{ app.credit_line + app.balance }}
+        </td>
+      </tr>
+    {%endfor%}
+      <tr>
+        <td>
+            {{ _('Count') }}
+        </td>
+        <td>
+            {{ balance_count }}
+        </td>
+        <td></td>
+        <td>
+            {{ credit_count }}
+        </td>
+        <td>
+            {{ available_balance_count }}
+        </td>
+      </tr>
+    </tbody>
+</table>
+{% endblock %}

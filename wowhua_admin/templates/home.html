@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="jumbo">
+        {% for message in get_flashed_messages() %}
+        <div class=flash>{{ message }}</div>
+        {% endfor %}
+        <h2> {{ _('Welcome to the Admin,') }}
+        {% if user.is_authenticated() %}
+            {{ user.name }}! <a href="{{ url_for('admin_handlers.logout_view') }}">{{ _('Logout') }}</a>
+            <br />
+            <a href="/admin/" style="font-size:38px">{{ _('Go To Admin.') }}</a>
+        {% else %}
+            {{ _('Anymous') }}! <a href="{{ url_for('admin_handlers.login_view') }}">{{ _('Login') }}</a>
+        {% endif %}<h2>
+        <h3>{{ _('This is the home page for the Admin') }}<h3>
+    </div>
+{% endblock %}
