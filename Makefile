@@ -6,7 +6,7 @@ help:
 	@echo "config - install config and scripts in virtualenv"
 	@echo "coverage - run coverage test"
 	@echo "lint - check style with pylint"
-	@echo "test - run tests"
+	@echo "utest - run utests"
 	@echo "ftest - run ftests"
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
@@ -32,7 +32,7 @@ config:
 	pip install -e .[develop]
 
 lint:
-	pylint --rcfile=.pylint.rc wowhua_admin tests ftests
+	pylint --rcfile=.pylint.rc wowhua_admin utests ftests
 
 start:
 	python scripts/run_wowhua_center_admin.py
@@ -43,14 +43,17 @@ stop:
 
 test_depends: l10n_update l10n_compile
 
-test: clean
+utest: clean
 	py.test -v --cov-report term --cov wowhua_admin tests
 
 ftest_clean:
 	#init_schema.py -r -a -t >/dev/null 2>&1
+	python scripts/manage.py reset_db
 
-ftest: ftest_clean
+ftest: ftest_clean clean
 	py.test -v ftests
+
+test: utest ftest
 
 coverage: clean test_depends
 	py.test -v --cov-report html --cov wowhua_admin tests
@@ -83,3 +86,21 @@ l10n_update: l10n_extract
 
 l10n_compile:
 	pybabel compile -f -d wowhua_admin/translations
+
+# docker need sudo permission on ubuntu
+#
+docker_build:
+	docker build -t wowhua-admin .
+
+docker_run:
+	docker run -p 9000:5000 -it --rm --name my-running-admin --link run-wowhua-postgres:wowhua_postgres \
+		--link run-wowhua-mongo:wowhua_mongo wowhua-admin
+
+docker_ci:
+	docker run -it --rm --name my-running-test --link run-wowhua-postgres:wowhua_postgres \
+		--link run-wowhua-mongo:wowhua_mongo \
+		-v "$(shell pwd)":/app -w /app wowhua-admin bash ci_script.sh
+
+docker_push:
+	docker tag wowhua-admin docker-registry.lxdb.jiake.org/wowhua_admin
+	docker push docker-registry.lxdb.jiake.org/wowhua_admin

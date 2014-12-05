@@ -1,0 +1,18 @@
+image: docker-registry.lxdb.jiake.org/wowhua_admin
+services:
+  - docker-registry.lxdb.jiake.org/wowhua_postgres
+  - docker-registry.lxdb.jiake.org/wowhua_mongo
+script:
+  - bash ci_script.sh
+notify:
+  email:
+    recipients:
+      - predawning@gmail.com
+      - linanfile@126.com
+
+  hipchat:
+    room: lingxiaoinc
+    token: 38bf5263291901fa202269e791016f
+    on_started: false
+    on_success: true
+    on_failure: true

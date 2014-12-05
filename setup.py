@@ -71,7 +71,6 @@ setup(
     },
     scripts=[
         'scripts/run_wowhua_admin.py',
-        'scripts/init_permission.py',
     ],
     zip_safe=False,
     keywords='wowhua_admin',
