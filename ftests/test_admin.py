@@ -31,6 +31,7 @@ class AdminTestCase(unittest.TestCase):
     def test_l10n(self):
         rv = self.app.get('/')
         resp = rv.data
+        print resp
         self.assertTrue('欢迎来玩耍' in resp)
 
         rv = self.app.get('/?lang=en')

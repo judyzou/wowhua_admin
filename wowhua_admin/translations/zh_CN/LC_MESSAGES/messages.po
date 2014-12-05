@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-05 17:09+0800\n"
+"POT-Creation-Date: 2014-12-05 11:32+0000\n"
 "PO-Revision-Date: 2014-09-26 19:00+0800\n"
 "Last-Translator: linan\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -86,9 +86,100 @@ msgstr "删除"
 msgid "register"
 msgstr "首次登录"
 
+msgid "None"
+msgstr ""
+
+msgid "Post Timeout Link"
+msgstr ""
+
+msgid "Waiting Ticket Link"
+msgstr ""
+
+msgid "Posted Link"
+msgstr ""
+
+msgid "Return Timeout Link"
+msgstr ""
+
+msgid "Failed Link"
+msgstr ""
+
+msgid "Provider Link"
+msgstr ""
+
+msgid "Post Time Out Tickets"
+msgstr ""
+
+msgid "Queueing Tickets"
+msgstr ""
+
+msgid "Posted Tickets"
+msgstr ""
+
+msgid "Return TimeOut Tickets"
+msgstr ""
+
+msgid "Waiting Tickets"
+msgstr ""
+
+msgid "ZHHB"
+msgstr ""
+
+msgid "LHBJ"
+msgstr ""
+
+msgid "failed tickets since the last 24 hours."
+msgstr ""
+
+msgid "Alarm"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Stop Alarm"
+msgstr ""
+
+msgid "Alarm Name"
+msgstr ""
+
+msgid "Count Num"
+msgstr ""
+
+msgid "Alarm Num"
+msgstr ""
+
+msgid "Alarm Status"
+msgstr ""
+
+#, fuzzy
+msgid "Link"
+msgstr "登录"
+
+msgid "Not Returned Link"
+msgstr ""
+
+msgid "Queueing Link"
+msgstr ""
+
+msgid "Not_sent Link"
+msgstr ""
+
+msgid "Not Returned Tickets"
+msgstr ""
 
 msgid "Balance"
 msgstr "余额"
+
+msgid "Not_sent tickets in 5 minutes"
+msgstr ""
+
+msgid "Alarming"
+msgstr ""
+
+#, fuzzy
+msgid "Provider"
+msgstr "订单"
 
 msgid "Lottery Code"
 msgstr "彩种"
@@ -111,8 +202,11 @@ msgstr "游客"
 msgid "Login"
 msgstr "登录"
 
-msgid "Wowhua Admin"
-msgstr "我划管理后台"
+msgid "This is the home page for the Admin"
+msgstr ""
+
+msgid "edit something...."
+msgstr ""
 
 msgid "About"
 msgstr "关于"
@@ -120,8 +214,25 @@ msgstr "关于"
 msgid "Anonymous"
 msgstr "游客"
 
-msgid "logout"
+#, fuzzy
+msgid " logout "
 msgstr "登出"
+
+msgid "Account App"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+#, fuzzy
+msgid "Credit"
+msgstr "创建"
+
+msgid "Available Balance"
+msgstr ""
+
+msgid "Main App"
+msgstr ""
 
 msgid "Operate Finance "
 msgstr "变更余额"
@@ -138,6 +249,65 @@ msgstr "余额"
 msgid "submit"
 msgstr "提交"
 
+#, fuzzy
+msgid "account_balance"
+msgstr "余额"
+
+#, fuzzy
+msgid "app_balance"
+msgstr "余额"
+
+msgid "Buried Jobs"
+msgstr ""
+
+msgid "JID"
+msgstr ""
+
+msgid "Job body"
+msgstr ""
+
+#, fuzzy
+msgid "Operation"
+msgstr "操作"
+
+#, fuzzy
+msgid "resend"
+msgstr "原因"
+
+msgid "Sale Map"
+msgstr ""
+
+msgid "Sale Active"
+msgstr ""
+
+msgid "Current Issue"
+msgstr ""
+
+msgid "Current Sale Status"
+msgstr ""
+
+msgid "Send Ticket Map"
+msgstr ""
+
+msgid "Provider Active"
+msgstr ""
+
+#, fuzzy
+msgid "Lottery"
+msgstr "彩种"
+
+msgid "Lottery Send Ticket Active"
+msgstr ""
+
+msgid "Provider Lottery Active"
+msgstr ""
+
+msgid "Current Provider Issue"
+msgstr ""
+
+msgid "Current Send Status"
+msgstr ""
+
 msgid "Percentage"
 msgstr "百分比"
 
@@ -152,6 +322,32 @@ msgstr "创建时间"
 
 msgid "Save and Continue"
 msgstr "保存并继续"
+
+#, fuzzy
+msgid "Game"
+msgstr "名称"
+
+msgid "Game ID"
+msgstr ""
+
+msgid "Game Status"
+msgstr ""
+
+msgid "Issue"
+msgstr ""
+
+msgid "Bouns Code"
+msgstr ""
+
+msgid "Prize"
+msgstr ""
+
+#, fuzzy
+msgid "Prize Category"
+msgstr "类别"
+
+msgid "Prize Payment"
+msgstr ""
 
 msgid "Delete?"
 msgstr "删除？"
@@ -177,18 +373,112 @@ msgstr "搜索"
 msgid "Operate"
 msgstr "操作"
 
+msgid "Please select at least one model."
+msgstr ""
+
+msgid "Cal Prize Again"
+msgstr ""
+
+msgid "Prize Ticket"
+msgstr ""
+
+msgid "Query Prize"
+msgstr ""
+
+msgid "Ticket Info"
+msgstr ""
+
+msgid "Ticket count"
+msgstr ""
+
+msgid "Ticket Price Count"
+msgstr ""
+
+msgid "Pre Tax Count"
+msgstr ""
+
+msgid "After Tax Count"
+msgstr ""
+
+msgid "Big Bonus Num"
+msgstr ""
+
+msgid "Small Bonus Num"
+msgstr ""
+
+msgid "please select a item"
+msgstr ""
+
+msgid "Summary Result"
+msgstr ""
+
+msgid "Ticket Count"
+msgstr ""
+
+msgid "Price Count"
+msgstr ""
+
+msgid "Pre Tax Bonus Amount"
+msgstr ""
+
+msgid "After Tax Bonus Amount"
+msgstr ""
+
+#, fuzzy
+msgid "Action"
+msgstr "进出明细"
+
+msgid "Can't result now."
+msgstr ""
 
 msgid "ID"
 msgstr "ID"
 
+#, fuzzy
+msgid "lottery"
+msgstr "彩种"
+
+msgid "issue"
+msgstr ""
+
+msgid "bonus_code"
+msgstr ""
+
+msgid "antes"
+msgstr ""
+
+#, fuzzy
+msgid "code"
+msgstr "订单"
+
 msgid "created"
 msgstr "创建"
+
+msgid "ante price"
+msgstr ""
+
+msgid "ticket_prize"
+msgstr ""
 
 msgid "detail"
 msgstr "详情"
 
 msgid "Category"
 msgstr "类别"
+
+#, fuzzy
+msgid "Bet Amount"
+msgstr "金额"
+
+msgid "Pretax Bonus"
+msgstr ""
+
+msgid "Payment total"
+msgstr ""
+
+#, fuzzy
+msgid "Ticket Transactions"
+msgstr "进出明细"
 
 msgid "type"
 msgstr "类型"
@@ -202,6 +492,18 @@ msgstr "交易类型"
 msgid "reason"
 msgstr "原因"
 
+msgid "Swap Record"
+msgstr ""
+
+msgid "Ticket Id"
+msgstr ""
+
+#, fuzzy
+msgid "provider"
+msgstr "订单"
+
+msgid "Process Status"
+msgstr ""
 
 msgid "Details"
 msgstr "详情"
@@ -248,4 +550,6 @@ msgstr "撤单记录"
 msgid "Created Time"
 msgstr "创建"
 
+#~ msgid "Wowhua Admin"
+#~ msgstr "我划管理后台"
 

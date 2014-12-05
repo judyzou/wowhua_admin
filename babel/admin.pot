@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WH-Admin VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-05 17:09+0800\n"
+"POT-Creation-Date: 2014-12-05 11:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,7 +77,8 @@ msgstr ""
 msgid "transaction"
 msgstr ""
 
-#: wowhua_admin/extensions.py:10 wowhua_admin/templates/layout.html:20
+#: wowhua_admin/extensions.py:10 wowhua_admin/templates/layout.html:6
+#: wowhua_admin/templates/layout.html:15 wowhua_admin/templates/layout.html:20
 msgid "Admin"
 msgstr ""
 
@@ -267,7 +268,7 @@ msgid "There are no items in the table."
 msgstr ""
 
 #: wowhua_admin/templates/home.html:8
-msgid "Welcome to the Ticket Center Admin,"
+msgid "Welcome to the Admin,"
 msgstr ""
 
 #: wowhua_admin/templates/home.html:10 wowhua_admin/templates/layout.html:24
@@ -287,15 +288,11 @@ msgid "Login"
 msgstr ""
 
 #: wowhua_admin/templates/home.html:16
-msgid "This is the home page for the Ticket Center Admin"
+msgid "This is the home page for the Admin"
 msgstr ""
 
 #: wowhua_admin/templates/index.html:3
 msgid "edit something...."
-msgstr ""
-
-#: wowhua_admin/templates/layout.html:6 wowhua_admin/templates/layout.html:15
-msgid "Ticket Center Admin"
 msgstr ""
 
 #: wowhua_admin/templates/layout.html:21
