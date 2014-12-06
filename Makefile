@@ -90,17 +90,14 @@ l10n_compile:
 # docker need sudo permission on ubuntu
 #
 docker_build:
-	docker build -t wowhua-admin .
+	fig build web
 
 docker_run:
-	docker run -p 9000:5000 -it --rm --name my-running-admin --link run-wowhua-postgres:wowhua_postgres \
-		--link run-wowhua-mongo:wowhua_mongo wowhua-admin
+	fig up --no-recreate
 
 docker_ci:
-	docker run -it --rm --name my-running-test --link run-wowhua-postgres:wowhua_postgres \
-		--link run-wowhua-mongo:wowhua_mongo \
-		-v "$(shell pwd)":/app -w /app wowhua-admin bash ci_script.sh
+	fig run web bash ci_script.sh --rm
 
 docker_push:
-	docker tag wowhua-admin docker-registry.lxdb.jiake.org/wowhua_admin
+	docker tag wowhuaadmin_web docker-registry.lxdb.jiake.org/wowhua_admin
 	docker push docker-registry.lxdb.jiake.org/wowhua_admin
