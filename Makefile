@@ -97,6 +97,7 @@ docker_run:
 
 docker_ci:
 	fig run web bash ci_script.sh --rm
+	fig stop
 
 docker_push:
 	docker tag wowhuaadmin_web docker-registry.lxdb.jiake.org/wowhua_admin

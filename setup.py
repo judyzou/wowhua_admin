@@ -47,6 +47,7 @@ install_requires.extend(
 tests_require = ['pytest==2.5.1', 'pytest-cov==1.6']
 develop_require = tests_require + [
     'Sphinx>=1.2.1', 'pylint==1.1.0', 'mock==1.0.1',
+    'fig>=1.0.1'
 ]
 
 setup(
