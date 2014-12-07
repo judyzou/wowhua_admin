@@ -24,12 +24,15 @@ clean-pyc:
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 
+init: config
+	pip install -e .[develop]
+
 config:
 	mkdir -p $(VIRTUAL_ENV)/etc
 	-rm -f $(VIRTUAL_ENV)/etc/wowhua_admin.*
 	-rm -f $(VIRTUAL_ENV)/etc/wowhua_admin_spec.*
 	ln -s `pwd`/wowhua_admin/conf/* $(VIRTUAL_ENV)/etc/
-	pip install -e .[develop]
+	pip install -e .[test]
 
 lint:
 	pylint --rcfile=.pylint.rc wowhua_admin utests ftests
