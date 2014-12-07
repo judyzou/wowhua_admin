@@ -68,7 +68,8 @@ setup(
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require={
-        'develop': develop_require
+        'develop': develop_require,
+        'test': tests_require
     },
     scripts=[
         'scripts/run_wowhua_admin.py',
