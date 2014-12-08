@@ -33,7 +33,7 @@ def home():
 def login_view():
     path = request.args.get('next_page', 'admin_handlers.home')
     ticket = ''
-    cas_server = setting['cas_server']
+    cas_server = setting['CAS_SERVER']
     status = 0
     cas_login = ''
     admin_user = None
@@ -64,7 +64,7 @@ def login_view():
 @admin_handlers.route('/logout/')
 def logout_view():
     next_path = request.args.get('next_page', 'admin_handlers.home')
-    logout_url = urlparse.urljoin(setting['cas_server'], 'logout')
+    logout_url = urlparse.urljoin(setting['CAS_SERVER'], 'logout')
     next_page = get_full_url(path=next_path)
     logout_url += '?' + urlencode({'url': next_page})
     admin_user = login.current_user

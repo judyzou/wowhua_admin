@@ -4,7 +4,6 @@ from email.mime.text import MIMEText
 import re
 import signal
 import logging
-import smtplib
 import jinja2
 import urlparse
 from flask import url_for, request, Markup

@@ -72,7 +72,7 @@ setup(
         'test': tests_require
     },
     scripts=[
-        'scripts/run_wowhua_admin.py',
+        'scripts/manage.py',
     ],
     zip_safe=False,
     keywords='wowhua_admin',

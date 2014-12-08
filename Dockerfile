@@ -9,5 +9,5 @@ ENV  PIP_PYPI_URL http://myusername:mypasswd@pypi.lxdb.jiake.org/simple/
 RUN  virtualenv /testenv && . /testenv/bin/activate && make config
 
 EXPOSE 5000
-CMD ["/testenv/bin/python", "scripts/run_wowhua_admin.py"]
+CMD ["/testenv/bin/python", "scripts/manage.py", "runserver", "-h", "0.0.0.0", "-p", "5000"]
 

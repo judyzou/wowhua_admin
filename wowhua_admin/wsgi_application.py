@@ -1,17 +1,12 @@
 # coding=utf-8
-import inspect
 import itertools
 
-from flask.ext.login import current_user, AnonymousUserMixin
+from flask.ext.login import AnonymousUserMixin
 from werkzeug.datastructures import ImmutableList
 from zch_logger import setup
 from flask import abort
 from functools import wraps
 
-log_env = setup()
-log_env.push_application()
-
-import pytz
 from functools import partial
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext import login
@@ -34,15 +29,17 @@ from wowhua_admin.extensions import admin
 
 VALID_LOCALES = ['zh', 'en']
 
+log_env = setup()
+log_env.push_application()
+
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
-# Create dummy secrey key so we can use sessions
-app.config['SECRET_KEY'] = '123456790'
-app.config['SECURITY_UNAUTHORIZED_VIEW'] = '/'
-app.config['SECURITY_MSG_UNAUTHORIZED'] = 'bbbbb'
-app.config['BABEL_DEFAULT_TIMEZONE'] = pytz.country_timezones['CN'][0]
-app.config["MONGODB_SETTINGS"] = get_config()['MONGODB_SETTINGS']
-app.config['CACHE_TYPE'] = get_config()['CACHE']['cache_type']
+
+config = get_config()
+app.config.update(dict(config))
+
+#app.config['SECURITY_UNAUTHORIZED_VIEW'] = '/'
+#app.config['SECURITY_MSG_UNAUTHORIZED'] = 'bbbbb'
 
 cache.init_app(app)
 app.register_blueprint(admin_handlers)
@@ -52,8 +49,6 @@ session_init(app, on_models_committed)
 
 # init mongo db connections
 mongo_db.init_app(app)
-
-permission_timeout = get_config()['CACHE']['permission_timeout']
 
 
 @app.before_first_request
@@ -135,7 +130,7 @@ def get_cache_key(fname):
         abort(403)
 
 
-@cache.memoize(make_name=get_cache_key, timeout=permission_timeout)
+@cache.memoize(make_name=get_cache_key)
 def get_permissions(admin_user):
     if not admin_user:
         return []

@@ -38,10 +38,10 @@ lint:
 	pylint --rcfile=.pylint.rc wowhua_admin utests ftests
 
 start:
-	python scripts/run_wowhua_center_admin.py
+	python scripts/manage.py runserver
 
 stop:
-	ps aux | grep -v grep | grep run_wowhua_center_admin | awk '{print $$2}' | xargs kill > /dev/null 2>&1 || exit 0
+	ps aux | grep -v grep | grep manage.py | awk '{print $$2}' | xargs kill > /dev/null 2>&1 || exit 0
 
 
 test_depends: l10n_update l10n_compile
@@ -96,11 +96,17 @@ docker_build:
 	fig build web
 
 docker_run:
-	fig up --no-recreate
+	fig up
 
 docker_ci:
 	fig run web bash ci_script.sh --rm
 	fig stop
+
+docker_initdb:
+	fig run web /testenv/bin/python scripts/init_mock_data.py
+
+docker_init_permission:
+	fig run web /testenv/bin/python scripts/manage.py reset_permission
 
 docker_push:
 	docker tag wowhuaadmin_web docker-registry.lxdb.jiake.org/wowhua_admin
