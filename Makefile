@@ -103,9 +103,12 @@ docker_ci:
 	fig stop
 
 docker_initdb:
-	fig run web /testenv/bin/python scripts/init_mock_data.py
+	# after docker_run
+	#fig run web /testenv/bin/python scripts/init_mock_data.py
+	fig run web /testenv/bin/python scripts/manage.py reset_db
 
 docker_init_permission:
+	# after user login
 	fig run web /testenv/bin/python scripts/manage.py reset_permission
 
 docker_push:

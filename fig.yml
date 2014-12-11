@@ -2,6 +2,11 @@ postgres:
   image: docker-registry.lxdb.jiake.org/wowhua_postgres
 mongo:
   image: docker-registry.lxdb.jiake.org/wowhua_mongo
+cron:
+  image: docker-registry.lxdb.jiake.org/wowhua_cron
+  links:
+    - postgres:wowhua_postgres
+    - mongo:wowhua_mongo
 web:
   build: .
   volumes:
@@ -12,3 +17,4 @@ web:
   links:
     - postgres:wowhua_postgres
     - mongo:wowhua_mongo
+    - cron:wowhua_cron
