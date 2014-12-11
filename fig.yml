@@ -10,9 +10,6 @@ web:
   build: .
   ports:
     - "9000:5000"
-  volumes:
-    - .:/app
-  working_dir: /app
   links:
     - mongo:wowhua_mongo
     - postgres:wowhua_postgres
