@@ -39,8 +39,9 @@ install_reqs = parse_requirements('requirements.txt')
 install_requires = [str(ir.req) for ir in install_reqs]
 install_requires.extend(
     ['sallyconf==1.1.0',
-     'wowhuaDB>=0.1.4',
+     'wowhuaDB>=0.1.5',
      'zchLogger>=0.1.2',
+     'pycas>=0.2.0',
      ]
 )
 

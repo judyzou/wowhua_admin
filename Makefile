@@ -114,3 +114,9 @@ docker_init_permission:
 docker_push:
 	docker tag wowhuaadmin_web docker-registry.lxdb.jiake.org/wowhua_admin
 	docker push docker-registry.lxdb.jiake.org/wowhua_admin
+
+reset_db:
+	python scripts/manage.py reset_db
+
+reset_permission:
+	python scripts/manage.py reset_permission

@@ -1,12 +1,17 @@
-FROM python:2.7.8-onbuild
+FROM python:2.7.8
 
-ENV hnwowhua_db_aux_db postgresql://zch@wowhua_postgres/wowhua_aux
-ENV hnwowhua_db_api_db postgresql://zch@wowhua_postgres/wowhua_api
-ENV hnwowhua_db_admin_db postgresql://zch@wowhua_postgres/wowhua_admin
-ENV hnwowhua_admin_MONGODB_SETTINGS__host wowhua_mongo
+RUN apt-get update
 
-ENV  PIP_PYPI_URL http://myusername:mypasswd@pypi.lxdb.jiake.org/simple/
-RUN  virtualenv /testenv && . /testenv/bin/activate && make config
+RUN mkdir /app
+WORKDIR /app
+COPY ./requirements.txt /app/
+
+RUN virtualenv /testenv
+RUN . /testenv/bin/activate && pip install -r requirements.txt
+
+ENV PIP_PYPI_URL http://myusername:mypasswd@pypi.lxdb.jiake.org/simple/
+COPY . /app
+RUN . /testenv/bin/activate && make config
 
 EXPOSE 5000
 CMD ["/testenv/bin/python", "scripts/manage.py", "runserver", "-h", "0.0.0.0", "-p", "5000"]

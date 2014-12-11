@@ -6,15 +6,13 @@ cron:
   image: docker-registry.lxdb.jiake.org/wowhua_cron
   links:
     - postgres:wowhua_postgres
-    - mongo:wowhua_mongo
 web:
   build: .
+  ports:
+    - "9000:5000"
   volumes:
     - .:/app
   working_dir: /app
-  ports:
-    - "9000:5000"
   links:
-    - postgres:wowhua_postgres
     - mongo:wowhua_mongo
-    - cron:wowhua_cron
+    - postgres:wowhua_postgres
