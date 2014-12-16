@@ -8,6 +8,7 @@ from wowhua_admin.models import AuthPermission
 from wowhua_admin.models import AuthGroup
 from wowhua_admin.models import AdminUser
 from wowhua_admin.models import Timeline
+from wowhua_admin.models import Device
 from wowhua_admin.models import Transaction
 from wowhua_admin.models import User
 from wowhua_admin.models import Wallet
@@ -30,10 +31,10 @@ from wowhua_admin.views.order import OrderView
 from wowhua_admin.views.user import UserView
 from wowhua_admin.views.wallet import WalletView
 from wowhua_admin.views.task import TaskView
+from wowhua_admin.views.device import DeviceView
 
 from wowhua_admin.db_session import admin_session
 from wowhua_admin.db_session import api_session
-from wowhua_admin.db_session import aux_session
 from wowhua_admin.extensions import admin
 
 
@@ -48,15 +49,17 @@ def setup_admin(app):
     admin.add_view(AdminUserView(AdminUser, admin_session, name=_('AdminUser'),
                                  endpoint='adminuser', category=auth_tran))
 
-    admin.add_view(TimelineView(Timeline, name=_('timeline'), endpoint='timeline'))
-    admin.add_view(OperatorLogView(OperatorLog, name=_('Operator Log'), endpoint='operatorlog'))
-
     admin.add_view(UserView(User, api_session, name=_('user'), endpoint='user'))
     admin.add_view(WalletView(Wallet, api_session, name=_('wallet'), endpoint='wallet'))
     admin.add_view(BookmarkView(Bookmark, api_session, name=_('bookmark'), endpoint='bookmark'))
     admin.add_view(TaskView(Task, api_session, name=_('task'), endpoint='task'))
     admin.add_view(OrderView(Order, api_session, name=_('order'), endpoint='order'))
     admin.add_view(AdvertContextView(AdvertContext, api_session, name=_('advert_context'), endpoint='advert_context'))
-    admin.add_view(AdvertView(Advert, aux_session, name=_('advert'), endpoint='advert'))
-    admin.add_view(ItemView(Item, aux_session, name=_('item'), endpoint='item'))
     admin.add_view(TransactionView(Transaction, api_session, name=_('transaction'), endpoint='transaction'))
+
+    admin.add_view(AdvertView(Advert, name=_('advert'), endpoint='advert'))
+    admin.add_view(ItemView(Item, name=_('item'), endpoint='item'))
+    admin.add_view(DeviceView(Device, name=_('device'), endpoint='device'))
+    admin.add_view(TimelineView(Timeline, name=_('timeline'), endpoint='timeline'))
+    admin.add_view(OperatorLogView(OperatorLog, name=_('Operator Log'), endpoint='operatorlog'))
+

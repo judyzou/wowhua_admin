@@ -3,7 +3,6 @@ import datetime
 from flask.ext import login
 from sqlalchemy.orm import mapper, relationship
 from wowhua_admin.log import logger
-from wowhua_admin.extensions import db
 
 from wowhua_db.admin.models import auth_permission_table
 from wowhua_db.admin.models import auth_group_table
@@ -17,14 +16,16 @@ from wowhua_db.api.models import BookmarkMapper as Bookmark
 from wowhua_db.api.models import WalletMapper as Wallet
 from wowhua_db.api.models import OrderMapper as Order
 from wowhua_db.api.models import TaskMapper as Task
-from wowhua_db.aux.models import AdvertMapper as Advert
-from wowhua_db.aux.models import ItemMapper as Item
+from wowhua_db.mongo.models import AdvertDocument as Advert
+from wowhua_db.mongo.models import ItemDocument as Item
+from wowhua_db.mongo.models import DeviceDocument as Device
+from wowhua_db.mongo.models import Document, StringField, DateTimeField
 
 
-class OperatorLog(db.Document):
-    admin_user = db.StringField()
-    detail = db.StringField()
-    action_time = db.DateTimeField()
+class OperatorLog(Document):
+    admin_user = StringField()
+    detail = StringField()
+    action_time = DateTimeField()
 
 
 def write_log(detail):
@@ -43,12 +44,12 @@ def write_log(detail):
                      exc_info=True)
 
 
-class Timeline(db.Document):
-    action_time = db.DateTimeField()
-    action = db.StringField()
-    admin_user = db.StringField()
-    resource = db.StringField(max_length=200)
-    detail = db.StringField()
+class Timeline(Document):
+    action_time = DateTimeField()
+    action = StringField()
+    admin_user = StringField()
+    resource = StringField(max_length=200)
+    detail = StringField()
 
 
 def add_timeline(action, resource, detail, admin_user, action_time=None):

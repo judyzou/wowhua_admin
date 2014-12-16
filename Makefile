@@ -111,8 +111,10 @@ docker_init_permission:
 	# after user login
 	fig run web /testenv/bin/python scripts/manage.py reset_permission
 
-docker_push:
+docker_tag:
 	docker tag wowhuaadmin_web docker-registry.lxdb.jiake.org/wowhua_admin
+
+docker_push: docker_tag
 	docker push docker-registry.lxdb.jiake.org/wowhua_admin
 
 reset_db:

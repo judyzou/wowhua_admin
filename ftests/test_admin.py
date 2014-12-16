@@ -10,7 +10,6 @@ from wowhua_admin.wsgi_application import application
 from wowhua_db.model_utils.data_util import init_dbs, drop_dbs
 
 from wowhua_admin.db_session import api_session
-from wowhua_admin.db_session import aux_session
 from wowhua_admin.db_session import admin_session
 
 class AdminTestCase(unittest.TestCase):
@@ -24,7 +23,6 @@ class AdminTestCase(unittest.TestCase):
 
     def tearDown(self):
         api_session.remove()
-        aux_session.remove()
         admin_session.remove()
         drop_dbs()
 

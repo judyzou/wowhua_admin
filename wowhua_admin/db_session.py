@@ -5,7 +5,6 @@ from sqlalchemy import orm
 from sqlalchemy.event import listen
 from wowhua_db.api.util import get_scoped_session as get_api_session
 from wowhua_db.admin.util import get_scoped_session as get_admin_session
-from wowhua_db.aux.util import get_scoped_session as get_aux_session
 
 # migrated from flask_sqlalchemy
 _signals = Namespace()
@@ -68,7 +67,6 @@ class _MapperSignalEvents(object):
 scopefunc = _app_ctx_stack.__ident_func__
 api_session = get_api_session(session_cls=SignallingSession, scopefunc=scopefunc)
 admin_session = get_admin_session(session_cls=SignallingSession, scopefunc=scopefunc)
-aux_session = get_aux_session(session_cls=SignallingSession, scopefunc=scopefunc)
 
 def session_init(app, on_models_committed):
     _SessionSignalEvents().register(app)

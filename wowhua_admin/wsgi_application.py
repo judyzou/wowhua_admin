@@ -17,15 +17,15 @@ from flask import request, session, Flask
 from wowhua_admin.cache import cache
 from wowhua_admin.db_session import admin_session
 from wowhua_admin.db_session import api_session
-from wowhua_admin.db_session import aux_session
 from wowhua_admin.db_session import session_init
 from wowhua_admin.views import admin_handlers
-from wowhua_admin.extensions import db as mongo_db
 from wowhua_admin.models import AdminUser, AuthGroup, AuthPermission
 from wowhua_admin.config import get_config
 from wowhua_admin.admin import setup_admin
 from wowhua_admin.util import on_models_committed
 from wowhua_admin.extensions import admin
+from wowhua_db.mongo.models import get_mongo_config
+from flask.ext.mongoengine import MongoEngine
 
 VALID_LOCALES = ['zh', 'en']
 
@@ -47,9 +47,16 @@ app.register_blueprint(admin_handlers)
 # register listener for signal of sqla
 session_init(app, on_models_committed)
 
-# init mongo db connections
-mongo_db.init_app(app)
+m_c = get_mongo_config()
+settings = {'db': m_c['database'],
+            'username': m_c['username'],
+            'password': m_c['password'],
+            'host': m_c['nodelist'][0][0],
+            'port': m_c['nodelist'][0][1]}
 
+app.config.update({'MONGODB_SETTINGS': settings})
+#mongo_db = MongoEngine()
+#mongo_db.init_app(app)
 
 @app.before_first_request
 def set_check_authorized(*args, **kwargs):
@@ -143,11 +150,6 @@ def get_permissions(admin_user):
     has_permissions = [permission.view_name for permission in
                        admin_user.permissions + group_permissions]
     return has_permissions
-
-
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    aux_session.remove()
 
 
 @app.teardown_appcontext

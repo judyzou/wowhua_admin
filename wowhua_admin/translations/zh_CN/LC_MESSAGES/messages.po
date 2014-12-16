@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-05 11:32+0000\n"
+"POT-Creation-Date: 2014-12-16 21:17+0800\n"
 "PO-Revision-Date: 2014-09-26 19:00+0800\n"
 "Last-Translator: linan\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -29,12 +29,6 @@ msgstr "组"
 msgid "AdminUser"
 msgstr "用户"
 
-msgid "timeline"
-msgstr "时间轴"
-
-msgid "Operator Log"
-msgstr "日志"
-
 msgid "user"
 msgstr "用户"
 
@@ -53,14 +47,23 @@ msgstr "订单"
 msgid "advert_context"
 msgstr "用户广告"
 
+msgid "transaction"
+msgstr "进出明细"
+
 msgid "advert"
 msgstr "广告"
 
 msgid "item"
 msgstr "商品"
 
-msgid "transaction"
-msgstr "进出明细"
+msgid "device"
+msgstr "手机设备"
+
+msgid "timeline"
+msgstr "时间轴"
+
+msgid "Operator Log"
+msgstr "日志"
 
 msgid "Admin"
 msgstr "管理界面"

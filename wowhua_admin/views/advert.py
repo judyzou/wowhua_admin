@@ -1,6 +1,6 @@
-from wowhua_admin.views import SafeView
+from wowhua_admin.views import MongoSafeView
 
 
-class AdvertView(SafeView):
+class AdvertView(MongoSafeView):
     can_edit = True
     can_create = True
