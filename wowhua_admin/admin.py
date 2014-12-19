@@ -8,6 +8,7 @@ from wowhua_admin.models import AuthPermission
 from wowhua_admin.models import AuthGroup
 from wowhua_admin.models import AdminUser
 from wowhua_admin.models import Timeline
+from wowhua_admin.models import Address
 from wowhua_admin.models import Device
 from wowhua_admin.models import Transaction
 from wowhua_admin.models import User
@@ -32,6 +33,7 @@ from wowhua_admin.views.user import UserView
 from wowhua_admin.views.wallet import WalletView
 from wowhua_admin.views.task import TaskView
 from wowhua_admin.views.device import DeviceView
+from wowhua_admin.views.address import AddressView
 
 from wowhua_admin.db_session import admin_session
 from wowhua_admin.db_session import api_session
@@ -60,6 +62,7 @@ def setup_admin(app):
     admin.add_view(AdvertView(Advert, name=_('advert'), endpoint='advert'))
     admin.add_view(ItemView(Item, name=_('item'), endpoint='item'))
     admin.add_view(DeviceView(Device, name=_('device'), endpoint='device'))
+    admin.add_view(AddressView(Address, name=_('address'), endpoint='address'))
     admin.add_view(TimelineView(Timeline, name=_('timeline'), endpoint='timeline'))
     admin.add_view(OperatorLogView(OperatorLog, name=_('Operator Log'), endpoint='operatorlog'))
 

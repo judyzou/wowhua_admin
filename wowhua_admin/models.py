@@ -19,6 +19,7 @@ from wowhua_db.api.models import TaskMapper as Task
 from wowhua_db.mongo.models import AdvertDocument as Advert
 from wowhua_db.mongo.models import ItemDocument as Item
 from wowhua_db.mongo.models import DeviceDocument as Device
+from wowhua_db.mongo.models import AddressDocument as Address
 from wowhua_db.mongo.models import Document, StringField, DateTimeField
 
 
