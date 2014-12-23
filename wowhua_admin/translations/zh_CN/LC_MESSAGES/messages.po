@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-19 12:31+0800\n"
+"POT-Creation-Date: 2014-12-23 17:26+0800\n"
 "PO-Revision-Date: 2014-09-26 19:00+0800\n"
 "Last-Translator: linan\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -61,6 +61,9 @@ msgstr "手机设备"
 
 msgid "address"
 msgstr "收货地址"
+
+msgid "announcement"
+msgstr "通告"
 
 msgid "timeline"
 msgstr "时间轴"

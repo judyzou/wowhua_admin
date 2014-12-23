@@ -19,6 +19,8 @@ from wowhua_admin.models import Bookmark
 from wowhua_admin.models import Item
 from wowhua_admin.models import Order
 from wowhua_admin.models import Task
+from wowhua_admin.models import Announcement
+from wowhua_admin.views.announcement import AnnouncementView
 from wowhua_admin.views.auth import AuthPermissionView
 from wowhua_admin.views.auth import AuthGroupView
 from wowhua_admin.views.auth import AdminUserView
@@ -63,6 +65,7 @@ def setup_admin(app):
     admin.add_view(ItemView(Item, name=_('item'), endpoint='item'))
     admin.add_view(DeviceView(Device, name=_('device'), endpoint='device'))
     admin.add_view(AddressView(Address, name=_('address'), endpoint='address'))
+    admin.add_view(AnnouncementView(Announcement, name=_('announcement'), endpoint='announcement'))
     admin.add_view(TimelineView(Timeline, name=_('timeline'), endpoint='timeline'))
     admin.add_view(OperatorLogView(OperatorLog, name=_('Operator Log'), endpoint='operatorlog'))
 

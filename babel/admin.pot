@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WH-Admin VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-19 12:31+0800\n"
+"POT-Creation-Date: 2014-12-23 17:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,71 +17,75 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: wowhua_admin/admin.py:44
+#: wowhua_admin/admin.py:46
 msgid "Auth"
 msgstr ""
 
-#: wowhua_admin/admin.py:46
+#: wowhua_admin/admin.py:48
 msgid "AuthPermission"
 msgstr ""
 
-#: wowhua_admin/admin.py:49
+#: wowhua_admin/admin.py:51
 msgid "AuthGroup"
 msgstr ""
 
-#: wowhua_admin/admin.py:51
+#: wowhua_admin/admin.py:53
 msgid "AdminUser"
 msgstr ""
 
-#: wowhua_admin/admin.py:54
+#: wowhua_admin/admin.py:56
 msgid "user"
 msgstr ""
 
-#: wowhua_admin/admin.py:55
+#: wowhua_admin/admin.py:57
 msgid "wallet"
 msgstr ""
 
-#: wowhua_admin/admin.py:56
+#: wowhua_admin/admin.py:58
 msgid "bookmark"
 msgstr ""
 
-#: wowhua_admin/admin.py:57
+#: wowhua_admin/admin.py:59
 msgid "task"
 msgstr ""
 
-#: wowhua_admin/admin.py:58
+#: wowhua_admin/admin.py:60
 msgid "order"
 msgstr ""
 
-#: wowhua_admin/admin.py:59
+#: wowhua_admin/admin.py:61
 msgid "advert_context"
 msgstr ""
 
-#: wowhua_admin/admin.py:60
+#: wowhua_admin/admin.py:62
 msgid "transaction"
 msgstr ""
 
-#: wowhua_admin/admin.py:62
+#: wowhua_admin/admin.py:64
 msgid "advert"
 msgstr ""
 
-#: wowhua_admin/admin.py:63
+#: wowhua_admin/admin.py:65
 msgid "item"
 msgstr ""
 
-#: wowhua_admin/admin.py:64
+#: wowhua_admin/admin.py:66
 msgid "device"
 msgstr ""
 
-#: wowhua_admin/admin.py:65
+#: wowhua_admin/admin.py:67
 msgid "address"
 msgstr ""
 
-#: wowhua_admin/admin.py:66
+#: wowhua_admin/admin.py:68
+msgid "announcement"
+msgstr ""
+
+#: wowhua_admin/admin.py:69
 msgid "timeline"
 msgstr ""
 
-#: wowhua_admin/admin.py:67
+#: wowhua_admin/admin.py:70
 msgid "Operator Log"
 msgstr ""
 

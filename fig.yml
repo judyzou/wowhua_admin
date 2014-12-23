@@ -12,5 +12,5 @@ web:
   ports:
     - "9000:5000"
   links:
-    - mongo:wowhua_mongo
     - postgres:wowhua_postgres
+    - mongo:wowhua_mongo
