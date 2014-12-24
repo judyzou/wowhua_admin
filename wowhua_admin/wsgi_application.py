@@ -1,6 +1,6 @@
 # coding=utf-8
 import itertools
-
+import logging
 from flask.ext.login import AnonymousUserMixin
 from werkzeug.datastructures import ImmutableList
 from zch_logger import setup
@@ -31,6 +31,8 @@ VALID_LOCALES = ['zh', 'en']
 
 log_env = setup()
 log_env.push_application()
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
