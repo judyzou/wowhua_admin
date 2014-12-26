@@ -6,6 +6,7 @@ import sys
 from setuptools import setup
 from setuptools.command import install, test
 from pip.req import parse_requirements
+from pip.download import PipSession
 
 
 __version__ = '0.1.0'
@@ -35,11 +36,11 @@ class PyTest(test.test):
         errcode = pytest.main(self.test_args)
         sys.exit(errcode)
 
-install_reqs = parse_requirements('requirements.txt')
+install_reqs = parse_requirements('requirements.txt', session=PipSession())
 install_requires = [str(ir.req) for ir in install_reqs]
 install_requires.extend(
     ['sallyconf==1.1.0',
-     'wowhuaDB>=0.1.16',
+     'wowhuaDB>=0.1.17',
      'zchLogger>=0.1.2',
      'pycas>=0.2.0',
      ]
