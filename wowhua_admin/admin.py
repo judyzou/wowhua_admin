@@ -20,6 +20,8 @@ from wowhua_admin.models import Item
 from wowhua_admin.models import Order
 from wowhua_admin.models import Task
 from wowhua_admin.models import Announcement
+from wowhua_admin.models import AlipayAccount
+from wowhua_admin.models import BankAccount
 from wowhua_admin.views.announcement import AnnouncementView
 from wowhua_admin.views.auth import AuthPermissionView
 from wowhua_admin.views.auth import AuthGroupView
@@ -36,6 +38,8 @@ from wowhua_admin.views.wallet import WalletView
 from wowhua_admin.views.task import TaskView
 from wowhua_admin.views.device import DeviceView
 from wowhua_admin.views.address import AddressView
+from wowhua_admin.views.alipay_account import AlipayAccountView
+from wowhua_admin.views.bank_account import BankAccountView
 
 from wowhua_admin.db_session import admin_session
 from wowhua_admin.db_session import api_session
@@ -65,6 +69,8 @@ def setup_admin(app):
     admin.add_view(ItemView(Item, name=_('item'), endpoint='item'))
     admin.add_view(DeviceView(Device, name=_('device'), endpoint='device'))
     admin.add_view(AddressView(Address, name=_('address'), endpoint='address'))
+    admin.add_view(AlipayAccountView(AlipayAccount, name=_('alipay_account'), endpoint='alipay_account'))
+    admin.add_view(BankAccountView(BankAccount, name=_('bank_account'), endpoint='bank_account'))
     admin.add_view(AnnouncementView(Announcement, name=_('announcement'), endpoint='announcement'))
     admin.add_view(TimelineView(Timeline, name=_('timeline'), endpoint='timeline'))
     admin.add_view(OperatorLogView(OperatorLog, name=_('Operator Log'), endpoint='operatorlog'))
