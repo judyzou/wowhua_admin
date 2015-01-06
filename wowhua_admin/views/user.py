@@ -7,5 +7,5 @@ class UserView(SafeView):
     column_default_sort = 'id'
     column_filters = ('mobile', )
     column_searchable_list = ('mobile', )
-    column_list = ('id', 'mobile', 'gender', 'birth_year', 'created')
+    column_list = ('id', 'mobile', 'gender', 'birth_year', 'city', 'created')
 

@@ -40,7 +40,7 @@ install_reqs = parse_requirements('requirements.txt', session=PipSession())
 install_requires = [str(ir.req) for ir in install_reqs]
 install_requires.extend(
     ['sallyconf==1.1.0',
-     'wowhuaDB>=0.1.18',
+     'wowhuaDB>=0.1.19',
      'zchLogger>=0.1.2',
      'pycas>=0.2.0',
      ]
