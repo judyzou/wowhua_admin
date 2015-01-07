@@ -7,8 +7,7 @@ script:
 notify:
   email:
     recipients:
-      - predawning@gmail.com
-      - linanfile@126.com
+      - predawning@163.com
 
   hipchat:
     room: lingxiaoinc
