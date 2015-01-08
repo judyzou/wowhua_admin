@@ -73,6 +73,9 @@ docs:
 release: docs clean test ftest
 	python setup.py sdist upload -r zchpi
 
+upload:
+	python setup.py sdist upload -r zchpi
+
 sdist: docs clean test ftest
 	python setup.py sdist
 	ls -l dist

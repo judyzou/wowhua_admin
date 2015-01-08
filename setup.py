@@ -9,7 +9,7 @@ from pip.req import parse_requirements
 from pip.download import PipSession
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.2'
 
 
 readme = open('README.rst').read()
@@ -40,7 +40,7 @@ install_reqs = parse_requirements('requirements.txt', session=PipSession())
 install_requires = [str(ir.req) for ir in install_reqs]
 install_requires.extend(
     ['sallyconf==1.1.0',
-     'wowhuaDB>=0.1.19',
+     'wowhuaDB>=0.1.20',
      'zchLogger>=0.1.2',
      'pycas>=0.2.0',
      ]
@@ -73,9 +73,7 @@ setup(
         'develop': develop_require,
         'test': tests_require
     },
-    scripts=[
-        'scripts/manage.py',
-    ],
+    scripts=[],
     zip_safe=False,
     keywords='wowhua_admin',
     cmdclass={'install': Install},

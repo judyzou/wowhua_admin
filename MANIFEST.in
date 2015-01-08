@@ -1,6 +1,7 @@
 include AUTHORS.rst
 include HISTORY.rst
 include README.rst
+include requirements.txt
 include ticket_admin/conf/*.ini
 recursive-include ticket_admin *.py
 recursive-exclude ticket_admin *.pyc
