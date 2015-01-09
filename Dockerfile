@@ -6,10 +6,9 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./requirements.txt /app/
 
-RUN virtualenv /testenv
-RUN . /testenv/bin/activate && pip install -r requirements.txt
-
 ENV PIP_PYPI_URL http://myusername:mypasswd@pypi.lxdb.jiake.org/simple/
+RUN virtualenv /testenv && . /testenv/bin/activate && pip install -r requirements.txt
+
 COPY . /app
 RUN . /testenv/bin/activate && make config
 
