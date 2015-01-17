@@ -16,11 +16,8 @@ from wowhua_db.api.models import BookmarkMapper as Bookmark
 from wowhua_db.api.models import WalletMapper as Wallet
 from wowhua_db.api.models import OrderMapper as Order
 from wowhua_db.api.models import TaskMapper as Task
-from wowhua_db.mongo.models import AdvertDocument as Advert
-from wowhua_db.mongo.models import ItemDocument as Item
 from wowhua_db.mongo.models import DeviceDocument as Device
 from wowhua_db.mongo.models import AddressDocument as Address
-from wowhua_db.mongo.models import AnnouncementDocument as Announcement
 from wowhua_db.mongo.models import BankAccountDocument as BankAccount
 from wowhua_db.mongo.models import AlipayAccountDocument as AlipayAccount
 from wowhua_db.mongo.models import Document, StringField, DateTimeField
