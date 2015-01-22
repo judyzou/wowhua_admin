@@ -9,7 +9,7 @@ from pip.req import parse_requirements
 from pip.download import PipSession
 
 
-__version__ = '0.1.6'
+__version__ = '0.1.7'
 
 
 readme = open('README.rst').read()
@@ -40,7 +40,7 @@ install_reqs = parse_requirements('requirements.txt', session=PipSession())
 install_requires = [str(ir.req) for ir in install_reqs]
 install_requires.extend(
     ['sallyconf==1.1.0',
-     'wowhuaDB>=0.1.26',
+     'wowhuaDB>=0.1.27',
      'zchLogger>=0.1.2',
      'pycas>=0.2.0',
      ]
